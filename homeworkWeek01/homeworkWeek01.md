@@ -13,7 +13,7 @@
    - User Flow
    - Wireframes (1 wireframe per page minimum, hand-drawn is ok!)
    - Color pallet
-![Color Pallet](homeworkWeek01/images/colorPallet.png)
+![Color Pallet](images/colorPallet.png)
    - Site navigation and Nav elements like buttons
    - Any third party APIs that will be used
     - TensorFlow
