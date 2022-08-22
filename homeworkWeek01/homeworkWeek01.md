@@ -8,7 +8,7 @@
    - **Definition statement**
      - I want to create an application that allows Law Enforcement Professionals to upload an image of someone involved in a crime and return matches to a person using facial recognition
    - **High level story**
-     - Facial recognition is used across a wide variety of modern applications. Law Enforcement is significantly underserved in the technology space for a
+     - Facial recognition is used across a wide variety of modern applications. Law Enforcement is significantly underserved in the technology space
    - **Outline of Content**
      - Home Page
      - Search Results Page
@@ -17,6 +17,8 @@
      - (Administrator) Jobs Page
      - (Administrator) User Manager Page
      - (Administrator) Resolution Page
+**Architecture**
+![Architecture](images/architecture2.png)
    - **User Flow**
        _(User Stories Listed in Terms of Priority)_
      - User Story 1
@@ -40,6 +42,7 @@
            - _User is able to view current address information of any entity in the application_
            - _User is able to view criminal history of any entity in the application_
            - _User is able to view a map that displays current address information_
+<span style="color:#11B3A9">
      - User Story 4
        - As an **ADMINISTRATOR** I want to be able to manage user profiles in the application
          - **Acceptance Criteria**
@@ -54,11 +57,12 @@
        - As an **ADMINISTRATOR** I want to be able to see entities that are likely the same and resolve them to improve model training over time
          - _Administrator can go to a page that shows likely similar entities and can either resolve or permanently reject the similarity_
          - _The system will update image repository to merge directories when matches are found across disparate systems_
+</span>
    - **Wireframes**
      - Architecture Diagram
 
    - **Color pallet**
-![Color Pallet](images/colorPallet.png)
+![Color Pallet](images/colorPallet2.png)
    - **Site navigation and Nav elements**
    - **Third Party APIs**
      - TensorFlow
