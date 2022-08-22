@@ -43,6 +43,7 @@
            - _User is able to view current address information of any entity in the application_
            - _User is able to view criminal history of any entity in the application_
            - _User is able to view a map that displays current address information_
+
 ### Additional users stories to be completed as time allows
 
      - User Story 4
