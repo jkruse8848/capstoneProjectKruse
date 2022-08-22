@@ -17,7 +17,7 @@
      - (Administrator) Jobs Page
      - (Administrator) User Manager Page
      - (Administrator) Resolution Page
-<br>
+
 **Architecture**
 ![Architecture](images/architecture2.png)
    - **User Flow**
