@@ -44,19 +44,19 @@
            - _User is able to view criminal history of any entity in the application_
            - _User is able to view a map that displays current address information_
 
-### Additional users stories to be completed as time allows
+## Additional users stories to be completed as time allows
 
-     - User Story 4
+     - Admin Story 1
        - As an **ADMINISTRATOR** I want to be able to manage user profiles in the application
          - **Acceptance Criteria**
            - _Administrator is able to add user profiles_
-     - User Story 5
+     - Admin Story 2
        - As an **ADMINISTRATOR** I want to be able to view the status of integration jobs that are pulling inmate data into the platform
          - _Administrator can view the current status of all scheduled jobs to include:_
            - _Completed_
            - _Running_
            - _Failed_
-     - User Story 6
+     - Admin Story 3
        - As an **ADMINISTRATOR** I want to be able to see entities that are likely the same and resolve them to improve model training over time
          - _Administrator can go to a page that shows likely similar entities and can either resolve or permanently reject the similarity_
          - _The system will update image repository to merge directories when matches are found across disparate systems_
