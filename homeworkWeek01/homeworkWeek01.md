@@ -44,7 +44,7 @@
            - _User is able to view criminal history of any entity in the application_
            - _User is able to view a map that displays current address information_
 ### Additional users stories to be completed as time allows
-     - <span style="color:#11B3A9">User Story 4</span>
+     - User Story 4
        - As an **ADMINISTRATOR** I want to be able to manage user profiles in the application
          - **Acceptance Criteria**
            - _Administrator is able to add user profiles_
