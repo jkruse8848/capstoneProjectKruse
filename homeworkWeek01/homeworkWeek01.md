@@ -43,7 +43,7 @@
            - _User is able to view current address information of any entity in the application_
            - _User is able to view criminal history of any entity in the application_
            - _User is able to view a map that displays current address information_
-     - <span style="color:#AA331A">User Story 4
+     - <span style="color:#11B3A9">User Story 4</span>
        - As an **ADMINISTRATOR** I want to be able to manage user profiles in the application
          - **Acceptance Criteria**
            - _Administrator is able to add user profiles_
@@ -56,7 +56,7 @@
      - User Story 6
        - As an **ADMINISTRATOR** I want to be able to see entities that are likely the same and resolve them to improve model training over time
          - _Administrator can go to a page that shows likely similar entities and can either resolve or permanently reject the similarity_
-         - _The system will update image repository to merge directories when matches are found across disparate systems_</span>
+         - _The system will update image repository to merge directories when matches are found across disparate systems_
    - **Wireframes**
      - Architecture Diagram
 
