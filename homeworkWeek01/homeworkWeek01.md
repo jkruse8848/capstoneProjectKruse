@@ -18,8 +18,6 @@
      - (Administrator) User Manager Page
      - (Administrator) Resolution Page
 
-**Architecture**
-![Architecture](images/architecture2.png)
    - **User Flow**
        _(User Stories Listed in Terms of Priority)_
      - User Story 1
@@ -62,9 +60,12 @@
          - _Administrator can go to a page that shows likely similar entities and can either resolve or permanently reject the similarity_
          - _The system will update image repository to merge directories when matches are found across disparate systems_
    - **Wireframes**
-     - Architecture Diagram
-
-   - **Color pallet**
+     - **Home Page**
+       - Desktop
+![HomePage](images/home_desktop.png)
+     - **Architecture Diagram**
+![Architecture](images/architecture2.png)
+     - **Color pallet**
 ![Color Pallet](images/colorPallet2.png)
    - **Site navigation and Nav elements**
    - **Third Party APIs**
