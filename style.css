@@ -4,6 +4,11 @@
 .italic{font-style: italic;}
 .oblique{font-style: oblique;}
 
+/*
+* {
+  border: #04455D 1px solid;
+}
+*/
 
 /* The sidebar menu */
 .sidenav {
@@ -83,7 +88,7 @@ hr {
   margin-right: auto;
 }
 
-.sidebarsvg{
+#sidebarsvg {
   height: 20px;
   width: 20px;
   fill: #04455D;
@@ -92,5 +97,94 @@ hr {
 
 .sidebarsvg:hover {
   fill: #AA331A;
+}
+
+.flex-container {
+  display: flex;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-banner {
+  display: flex;
+  height: 100px;
+  align-self: center;
+}
+
+.flex-buffer {
+  display: flex;
+  height: 40px;
+  align-self: center;
+}
+
+.flex-upload-container {
+  display: flex;
+  height: 175px;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-searchbar-container {
+  display: flex;
+  height: 75px;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-upload-button {
+  height: 150px;
+  width: 150px;
+  border: #04455D 3px solid;
+  border-radius: 20px;
+  box-shadow: #DADADA 3px 3px 3px;
+  background-color: #F3F3F3;
+}
+
+#banner-text {
+  font-size: medium;
+  text-align: center;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+#home-pepper {
+  height: 50;
+  width: 50;
+  padding: 25px 25px 25px 25px;
+}
+
+/* Search Bar and form */
+form {
+  width: 395px;
+  margin: auto;
+  border: 0;
+  border-radius: 14px;
+}
+
+input {
+  padding: 4px 12px;
+  border: 0;
+  font-size: 16px;
+}
+
+.search {
+  width: 73%;
+  border: 0;
+  border-radius: 10px;
+  border: #04455D 3px solid;
+  background-color: #F3F3F3;
+}
+
+.submit {
+  width: 70px;
+  background-color: #04455D;
+  color: #F3F3F3;
+  border-radius: 10px;
+  border: #04455D 3px solid;
+  text-align: center;
 }
 

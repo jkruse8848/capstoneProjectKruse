@@ -12,10 +12,10 @@
   <div class="sidenav">
     <logo href="#"><img src="images/cayenneLogoFull.png" class="center" height="50" width="200"/></logo>
     <hr>
-    <a href="#"><img src="icons/home.svg" class="sidebarsvg"/> Home</a>
-    <a href="#"><img src="icons/search.svg" class="sidebarsvg"/> Search</a>
-    <a href="#"><img src="icons/application.svg" class="sidebarsvg"/> Dossier</a>
-    <a href="#"><img src="icons/notifications.svg" class="sidebarsvg"/> Notifications</a>
+    <a href="#"><img src="icons/home.svg" id="sidebarsvg"/> Home</a>
+    <a href="#"><img src="icons/search.svg" id="sidebarsvg"/> Search</a>
+    <a href="#"><img src="icons/application.svg" id="sidebarsvg"/> Dossier</a>
+    <a href="#"><img src="icons/notifications.svg" id="sidebarsvg"/> Notifications</a>
     <hr>
     <bottom href="#"><img src="images/profile.jpg" height="40" width="40"/> Joseph Kruse
     <br>
@@ -25,7 +25,23 @@
 
   <!-- Page content -->
   <div class="main">
-    <upload-button href="#">upload here</upload-button>
+    <div class="flex-buffer"></div>
+    <div class="flex-container">
+      <div class="flex-banner">
+        <p id="banner-text"> Hi Joseph, Welcome to Cayenne for Law Enforcement</p>
+      </div>
+      <div class="flex-banner">
+        <img src="images/CayenneLogoJustCayenne.png" id="home-pepper"/>
+      </div>
+    </div>
+    <div class="flex-searchbar-container">
+      <form action="/form/submit" method="GET">
+        <input type="text" name="text" class="search" placeholder="Search here!">
+        <input type="submit" name="submit" class="submit" value="Search">
+    </div>
+    <div class="flex-upload-container">
+      <div class="flex-upload-button"></div>
+    </div>
   </div>
 </body>
 </html>
