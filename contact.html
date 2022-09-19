@@ -53,7 +53,7 @@
             <div class="fas fa-angle-double-left fa-lg"></div>
         </div>
         <hr>
-        <div class="fas fa-home fa-lg" id="selected-nav" onclick="homePage(this)">
+        <div class="fas fa-home fa-lg" id="nav-icon" onclick="homePage(this)">
             <p id="nav-bar-text">HOME</p>
         </div>    
         <div class="fas fa-search fa-lg" id="nav-icon">
@@ -67,10 +67,10 @@
         </div>
         <div class="panel-spread"> 
         </div>  
-        <div class="fas fa-info-circle fa-lg" id="nav-icon" onclick="aboutPage(this)" value="/about.html">
+        <div class="fas fa-info-circle fa-lg" id="nav-icon" onclick="aboutPage(this)" value="/pages/about.html">
             <p id="nav-bar-text">ABOUT</p>        
         </div>
-        <div class="fas fa-comment-alt fa-lg" id="nav-icon">
+        <div class="fas fa-comment-alt fa-lg" id="selected-nav">
             <p id="nav-bar-text">CONTACT</p>        
         </div>
         <div class="fas fa-file-alt fa-lg" id="nav-icon">
@@ -83,8 +83,35 @@
     </ul>
 </nav>
 <body>
-    <div class="top-buffer">
-        <p>TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST</p>
+    <div class="flex-buffer"></div>
+    <div class="flex-container">
+    <div class="contact-form">
+        <form action="https://formspree.io/f/xyyvebrg" method="POST" enctype="multipart/form-data">
+            <label id="contact-form-input">Your email:
+                <input type="email" name="email" id="sub-form-input-email">
+            </label>
+            <label id="contact-form-input">Subject:
+                <input type="text" name="subject" id="sub-form-input-subject">
+            </label>
+            <label id="contact-form-input-inline" for="Description of Issue">Select Issue:
+            <select name="Description of Issue" id="sub-form-input-issue" required>  
+                <option disabled selected value> -- select an option -- </option>
+                <option value="Software Issue">Software Issue</option>
+                <option value="Request Training">Request Training</option>
+                <option value="Feedback">Submit Feedback</option>
+                <option value="Sales">Sales</option>
+                <option value="Demo">Request Demonstration</option>
+            </select>
+            </label>  
+            <label id="contact-form-input">Issue Description:
+                <textarea name="detailed-description" id="sub-form-input-description" rows="5"></textarea>
+            </label>   
+            <label id="contact-form-input">Upload file:
+                <input type="file" name="upload" id="sub-form-input-file">
+            </label>
+            <button type="submit" id="sub-form-input-submit">Send</button>
+        </form>
     </div>
+    </div> 
 </body>
 </html>
