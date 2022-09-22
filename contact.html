@@ -36,17 +36,17 @@
             <div class="fas fa-bell fa-lg"></div>
             <div class="fas fa-table fa-lg"></div>
             <div class="panel-spread2">
-            <div class="fas fa-info-circle fa-lg"></div> 
+            <div class="fas fa-info-circle fa-lg"></div>
             <div class="fas fa-comment-alt fa-lg"></div>
             <div class="fas fa-file-alt fa-lg"></div>
             <hr id="mini-hr">
             <div class="fas fa-user-shield fa-lg"></div>
         </div>
     </ul>
--->    
+-->
 
 
-    <ul class="hidden--mobile"> 
+    <ul class="hidden--mobile">
         <div id="logo">
             <img src="images/CayenneC2.png">
             <p id="logo-text">CAYENNE</p>
@@ -55,36 +55,36 @@
         <hr>
         <div class="fas fa-home fa-lg" id="nav-icon" onclick="homePage(this)">
             <p id="nav-bar-text">HOME</p>
-        </div>    
+        </div>
         <div class="fas fa-search fa-lg" id="nav-icon">
-            <p id="nav-bar-text">SEARCH</p>  
+            <p id="nav-bar-text">SEARCH</p>
         </div>
         <div class="fas fa-table fa-lg" id="nav-icon">
-            <p id="nav-bar-text">DOSSIER</p>        
+            <p id="nav-bar-text">DOSSIER</p>
         </div>
         <div class="fas fa-bell fa-lg" id="nav-icon">
-            <p id="nav-bar-text">NOTIFICATIONS</p>        
+            <p id="nav-bar-text">NOTIFICATIONS</p>
         </div>
-        <div class="panel-spread"> 
-        </div>  
+        <div class="panel-spread">
+        </div>
         <div class="fas fa-info-circle fa-lg" id="nav-icon" onclick="aboutPage(this)" value="/pages/about.html">
-            <p id="nav-bar-text">ABOUT</p>        
+            <p id="nav-bar-text">ABOUT</p>
         </div>
         <div class="fas fa-comment-alt fa-lg" id="selected-nav">
-            <p id="nav-bar-text">CONTACT</p>        
+            <p id="nav-bar-text">CONTACT</p>
         </div>
         <div class="fas fa-file-alt fa-lg" id="nav-icon">
-            <p id="nav-bar-text">USER GUIDE</p>        
+            <p id="nav-bar-text">USER GUIDE</p>
         </div>
-        <hr> 
+        <hr>
         <div class="fas fa-user-shield fa-lg" id="nav-icon">
-            <p id="nav-bar-text">USER PROFILE</p>        
-        </div>   
+            <p id="nav-bar-text">USER PROFILE</p>
+        </div>
     </ul>
 </nav>
 <body>
     <div class="flex-buffer"></div>
-    <div class="flex-container">
+    <div class="flex-container-form">
     <div class="contact-form">
         <form action="https://formspree.io/f/xyyvebrg" method="POST" enctype="multipart/form-data">
             <label id="contact-form-input">Your email:
@@ -94,7 +94,7 @@
                 <input type="text" name="subject" id="sub-form-input-subject">
             </label>
             <label id="contact-form-input-inline" for="Description of Issue">Select Issue:
-            <select name="Description of Issue" id="sub-form-input-issue" required>  
+            <select name="Description of Issue" id="sub-form-input-issue" required>
                 <option disabled selected value> -- select an option -- </option>
                 <option value="Software Issue">Software Issue</option>
                 <option value="Request Training">Request Training</option>
@@ -102,16 +102,16 @@
                 <option value="Sales">Sales</option>
                 <option value="Demo">Request Demonstration</option>
             </select>
-            </label>  
+            </label>
             <label id="contact-form-input">Issue Description:
                 <textarea name="detailed-description" id="sub-form-input-description" rows="5"></textarea>
-            </label>   
+            </label>
             <label id="contact-form-input">Upload file:
                 <input type="file" name="upload" id="sub-form-input-file">
             </label>
             <button type="submit" id="sub-form-input-submit">Send</button>
         </form>
     </div>
-    </div> 
+    </div>
 </body>
 </html>
