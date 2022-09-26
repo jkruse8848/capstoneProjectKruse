@@ -1,4 +1,5 @@
 import html from "html-literal";
+import cayenne from "/assets/img/CayenneC2.png";
 
 export default links => html`
 <nav>
@@ -17,7 +18,7 @@ export default links => html`
 </i>
 <ul class="hidden--mobile">
 <div id="logo">
-    <img src="images/CayenneC2.png">
+    <img src="${cayenne}">
       <p id="logo-text">CAYENNE</p>
     <div class="fas fa-angle-double-left fa-lg"></div>
 </div>

@@ -1,10 +1,11 @@
 import html from "html-literal";
+import mugShotImage from "/assets/img/mugshot-placeholder.webp";
 
 export default state => html`<main>
 <div class="dossier-all">
 <div class="dossier-top">
   <div class="dossier-photo-container">
-    <img id="dossier-mugshot" src="/images/mugshot-placeholder.webp">
+    <img id="dossier-mugshot" src="${mugShotImage}">
   </div>
   <div class="dossier-basic-bio-container">
     <div class="top-properties-container">
