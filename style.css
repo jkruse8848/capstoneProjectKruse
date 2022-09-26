@@ -290,7 +290,7 @@ color: #04455D;
     border: 2px #AA331A solid;
   }
 
-  #selected-nav {
+  .selected-nav {
     height: 20px;
     width: 120%;
     padding-top: 20px;
@@ -488,7 +488,7 @@ body > .welcome-box {
   width: 100%;
 }
 
-body > main > .welcome-box > h3 {
+main > .welcome-box > h3 {
   display: inline-flex;
   flex-direction: column;
   align-self: center;
@@ -980,6 +980,7 @@ footer > img {
   color: #04455D;
   padding-left: 20px;
   padding-right: 20px;
+  margin-bottom: -10px;
 }
 
 .top-property-values-container {
@@ -991,9 +992,9 @@ footer > img {
   font-size: large;
   font-weight: 500;
   color: #04455D;
+  margin-bottom: -10px;
 }
 
-}
 .tabbed-container {
   display: flex;
   transform: translateX(-50%);
@@ -1074,19 +1075,33 @@ footer > img {
 }
 
 .tab-content .booking-properties {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.booking-properties > p {
+  margin-top: -10px;
+  font-weight: 900;
 }
 
 .tab-content .booking-property-values {
   display: flex;
   flex-direction: column;
+  padding-right: 40px;
+}
+
+.booking-property-values > p {
+  margin-top: -10px;
 }
 
 .bond-table {
   align-self: center;
   justify-self: center;
   background-color: #F3F3F3;
+  margin-left: 250px;
+  border: #04455D 2px solid;
 }
 
 #tr-header {
@@ -1120,4 +1135,5 @@ td {
   table-layout: fixed;
   flex-wrap: wrap;
   width: 100%;
+  border: #04455D 2px solid;
 }

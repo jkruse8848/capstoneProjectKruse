@@ -1,25 +1,40 @@
-// Event Listener for Hamburger Icon Menu
-// document.querySelector(".fa-bars").addEventListener("click", () => {
-//     document.querySelector("nav > ul").classList.toggle("hidden--mobile");
-//   });
+import { Header, Nav, Main, Footer } from "./components";
+import * as store from "./store";
+import Navigo from "navigo";
+import { capitalize } from "lodash";
 
-//Event Listener for collapsible side panel
-function closeNav() {
-  document
-    .querySelector(".fa-angle-double-left")
-    .addEventListener("click", () => {
-      document.querySelector("nav > ul").classList.toggle(".mini-nav");
-    });
+const router = new Navigo("/");
+
+function render(state = store.Home) {
+  document.querySelector("#root").innerHTML = `
+    ${Header(state)}
+    ${Nav(store.Links)}
+    ${Main(state)}
+    ${Footer()}
+  `;
+
+  afterRender(state);
+
+  router.updatePageLinks();
 }
 
-//Side Panel Navigation
-function homePage(el) {
-  window.location.href = "./index.html";
+function afterRender(state) {
+  // add menu toggle to bars icon in nav bar
+  document.querySelector(".fa-bars").addEventListener("click", () => {
+    document.querySelector("nav > ul").classList.toggle("hidden--mobile");
+  });
 }
 
-function aboutPage(link) {
-  location.href = "/about.html";
-}
+// routing
+router
+  .on({
+    "/": () => render(),
+    ":view": params => {
+      let view = capitalize(params.data.view);
+      render(store[view]);
+    }
+  })
+  .resolve();
 
 // MODAL
 // MODAL
@@ -50,3 +65,18 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 };
+
+let tabs = document.querySelectorAll(".dossier-tabs h3");
+let tabContents = document.querySelectorAll(".tab-content div");
+tabs.forEach((tab, index) => {
+  tab.addEventListener("click", () => {
+    tabContents.forEach(content => {
+      content.classList.remove("active");
+    });
+    tabs.forEach(tab => {
+      tab.classList.remove("active");
+    });
+    tabContents[index].classList.add("active");
+    tabs[index].classList.add("active");
+  });
+});
