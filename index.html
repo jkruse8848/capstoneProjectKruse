@@ -58,33 +58,33 @@
             <div class="fas fa-angle-double-left fa-lg"></div>
         </div>
         <hr>
-        <div class="fas fa-home fa-lg" id="selected-nav" onclick="location.href='/index.html';">
+        <a href="/index.html" class="fas fa-home fa-lg" id="selected-nav">
             <p id="nav-bar-text">HOME</p>
-        </div>
-        <div class="fas fa-search fa-lg" id="nav-icon" onclick="location.href='/search.html';">
+        </a>
+        <a href="/search.html" class="fas fa-search fa-lg" id="nav-icon">
             <p id="nav-bar-text">SEARCH</p>
-        </div>
-        <div class="fas fa-table fa-lg" id="nav-icon" onclick="location.href='/dossier.html';">
+        </a>
+        <a href="/Dossier.html" class="fas fa-table fa-lg" id="nav-icon">
             <p id="nav-bar-text">DOSSIER</p>
-        </div>
-        <div class="fas fa-bell fa-lg" id="nav-icon" onclick="location.href='/notifications.html';">
+        </a>
+        <a href="/notifications.html" class="fas fa-bell fa-lg" id="nav-icon">
             <p id="nav-bar-text">NOTIFICATIONS</p>
-        </div>
+        </a>
         <div class="panel-spread">
         </div>
-        <div class="fas fa-info-circle fa-lg" id="nav-icon" onclick="location.href='/about.html';">
+        <a href="/about.html" class="fas fa-info-circle fa-lg" id="nav-icon">
             <p id="nav-bar-text">ABOUT</p>
-        </div>
-        <div class="fas fa-comment-alt fa-lg" id="nav-icon" onclick="location.href='/contact.html';">
+        </a>
+        <a href="/contact.html" class="fas fa-comment-alt fa-lg" id="nav-icon">
             <p id="nav-bar-text">CONTACT</p>
-        </div>
-        <div class="fas fa-file-alt fa-lg" id="nav-icon" onclick="location.href='/userGuide.html';">
+        </a>
+        <a href="/Guide.html" class="fas fa-file-alt fa-lg" id="nav-icon">
             <p id="nav-bar-text">USER GUIDE</p>
-        </div>
+        </a>
         <hr>
-        <div class="fas fa-user-shield fa-lg" id="nav-icon">
+        <a href="" class="fas fa-user-shield fa-lg" id="nav-icon">
             <p id="nav-bar-text">USER PROFILE</p>
-        </div>
+        </a>
     </ul>
     </nav>
         <main>
@@ -100,19 +100,15 @@
                             <div class="fas fa-chalkboard-teacher fa-2x" id="media-icon"></div>
                             <p>Training</p>
                         </div>
-                        <div class="help-item">
+                        <a href="/Guide.html" class="help-item">
                             <div class="fas fa-file-alt fa-2x" id="media-icon"></div>
                             <p>User Guide</p>
-                        </div>
+                        </a>
                     </div>
                 </h3>
             </div>
             <div class="search-container">
-                <div class="home-search-bar">
-                    <div class="fas fa-search fa-2x">
-                        <input type="text" name="subject" id="home-search-bar" placeholder="Run Your Search Here...">
-                    </div>
-                </div>
+                <p>Upload Photos or Video to Perform Facial Recognition:</p>
             </div>
             <div class="home-separator"></div>
             <div class="media-holder">
@@ -140,13 +136,22 @@
                     </div>
                 </div>
             </div>
-            <!-- The Modal -->
-            <div id="myModal" class="modal">
+            <!-- Upload Modal -->
+            <div id="upload-modal" class="upload-modal">
 
-                <!-- Modal content -->
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <p>Some text in the Modal..</p>
+                <!-- Upload Modal content -->
+                <div class="upload-modal-content">
+                    <span class="fas fa-window-close fa-2x" id="modal-close"></span>
+                    <label id="contact-form-input">Case Number:
+                        <input type="text" name="subject" id="media-modal-casenumber">
+                    </label>
+                    <label id="contact-form-input">Justification:
+                        <input type="text" name="subject" id="media-modal-justification">
+                    </label>
+                    <label id="contact-form-input">Upload file:
+                        <input type="file" name="upload" id="media-modal-upload-file">
+                    </label>
+                    <button type="submit" id="media-modal-submit">Submit</button>
                 </div>
             </div>
     </main>
