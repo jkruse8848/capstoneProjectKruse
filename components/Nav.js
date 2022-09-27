@@ -18,7 +18,7 @@ export default links => html`
 </i>
 <ul class="hidden--mobile">
 <div id="logo">
-    <img src="${cayenne}">
+    <img src="${cayenne}" id="logo-image">
       <p id="logo-text">CAYENNE</p>
     <div class="fas fa-angle-double-left fa-lg"></div>
 </div>

@@ -1,7 +1,8 @@
 import html from "html-literal";
 import mugShotImage from "/assets/img/mugshot-placeholder.webp";
 
-export default state => html`<main>
+export default state => html`
+<main>
 <div class="dossier-all">
 <div class="dossier-top">
   <div class="dossier-photo-container">
@@ -64,11 +65,9 @@ export default state => html`<main>
           <div>
             <div class="dossier-tab-wrapper">
               <div class="booking-history-container">
-                <div class="booking-banner">
-                  <h4>Booking inmate.bookingNumber</h4>
-                </div>
                 <div class="bond-booking-properties">
                   <div class="booking-properties">
+                    <p>Booking Number:</p>
                     <p>Booking Date:</p>
                     <p>Release Date:</p>
                     <p>Prisoner Type:</p>
@@ -78,7 +77,8 @@ export default state => html`<main>
                     <p>Booking Origin:</p>
                   </div>
                   <div class="booking-property-values">
-                    <p>bookingDate</p>
+                    <p>inmate.bookingNumber</p>
+                    <p>inmate.bookingDate</p>
                     <p>inmate.releaseDate</p>
                     <p>inmate.prisonerType</p>
                     <p>inmate.facility</p>
@@ -125,6 +125,7 @@ export default state => html`<main>
                       </tr>
                     </table>
                   </div>
+                  <hr id="table-separator">
               </div>
             </div>
           </div>
