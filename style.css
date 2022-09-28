@@ -1025,6 +1025,8 @@ footer > img {
 }
 
 .tab-content {
+  display: flex;
+  flex-direction: column;
   background-color: #F3F3F3;
   color: #04455D;
   padding: 50px 40px;
@@ -1056,6 +1058,54 @@ footer > img {
   border: #AA331A 3px solid;
 }
 
+.tab-content .address-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+}
+
+.tab-content .address-properties {
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 200px;
+  margin-left: 200px;
+}
+
+.tab-content .address-properties > p {
+  flex-wrap: wrap;
+  font-weight: 900;
+  width: 200px;
+}
+
+.tab-content .address-property-values {
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.tab-content .address-property-values > p {
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 200px;
+}
+
+.tab-content .map-holder {
+  display: flex;
+  flex-wrap: wrap;
+  align-self: end;
+  margin-left: 200px;
+}
+
+.map-holder > #map-placeholder {
+  justify-self: end;
+  height: 85%;
+  width: 85%;
+  border: #04455D 2px solid;
+}
+
 .tab-content .dossier-tab-wrapper {
   display: flex;
   flex-direction: column;
@@ -1077,6 +1127,7 @@ footer > img {
 
 .tab-content .bond-booking-properties {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
 }
@@ -1150,4 +1201,17 @@ td {
   margin-bottom: 20px;
   color: #04455D;
   margin-left: 20px;
+}
+
+/* Dispatch Map Page */
+#map {
+  display: flex;
+  flex-wrap: wrap;
+  height: 600px;
+  width: 88%;
+  border: #04455D 2px solid;
+  align-self: center;
+  justify-self: center;
+  margin-left: 100px;
+  box-shadow: 3px 3px 3px #8E8E8E;
 }

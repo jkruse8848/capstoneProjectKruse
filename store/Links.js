@@ -1,13 +1,13 @@
 export default [
   {
     title: "Home",
-    class: "fas fa-home fa-lg selected-nav",
+    class: "fas fa-home fa-lg",
     id: "selected-nav",
     text: "Home"
   },
   {
     title: "Search",
-    class: "fas fa-search fa-lg selected-nav",
+    class: "fas fa-search fa-lg",
     id: "selected-nav",
     text: "Search"
   },
@@ -22,6 +22,12 @@ export default [
     class: "fas fa-bell fa-lg",
     id: "selected-nav",
     text: "Notifications"
+  },
+  {
+    title: "Dispatch",
+    class: "fas fa-map-marked-alt fa-lg",
+    id: "selected-nav",
+    text: "Current Dispatch"
   },
   {
     title: "About",

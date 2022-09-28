@@ -1,5 +1,6 @@
 import html from "html-literal";
 import mugShotImage from "/assets/img/mugshot-placeholder.webp";
+import mapPlaceholder from "/assets/img/mapPlaceholder.png";
 
 export default state => html`
 <main>
@@ -34,8 +35,8 @@ export default state => html`
         <div class="dossier-tabs">
           <h3 class="active">Biographic Data</h3>
           <h3>Known Addresses</h3>
-          <h3>Booking History</h3>
           <h3>Notes & Activity</h3>
+          <h3>Booking History</h3>
         </div>
         <div class="tab-content">
           <div class="active">
@@ -51,17 +52,31 @@ export default state => html`
           </div>
 
           <div>
-            <h4>Second Title</h4>
+            <div class="address-container">
+              <div class="address-properties">
+                <p>Last Reported Address:</p>
+                <p>Previous Address 1:</p>
+              </div>
+              <div class="address-property-values">
+                <p>123 Main Street, Nashville, TN 37208</p>
+                <p>7345 Higerth St Springfield, VA 22042</p>
+              </div>
+              <div class="map-holder">
+                <img id="map-placeholder" src="${mapPlaceholder}">
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4>Third Title</h4>
             <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti,
-              fugiat ab? Accusamus sed a iusto? Placeat incidunt repudiandae vero
-              magnam nihil tempore quasi earum illum totam aut delectus aliquam
-              pariatur, iste, qui provident quo voluptatem neque facere id
-              laudantium aliquid numquam nisi accusantium. Inventore reiciendis
-              nulla, iste perferendis.
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat
+              autem accusantium voluptate debitis ipsa animi aliquid dolore?
+              Suscipit consequatur architecto ullam perferendis praesentium sed
+              aliquid voluptatem quibusdam laborum, doloremque aut atque debitis
+              et laudantium qui veniam eligendi accusamus ipsam optio, assumenda
+              aliquam ipsum dolorem similique?
             </p>
           </div>
-
           <div>
             <div class="dossier-tab-wrapper">
               <div class="booking-history-container">
@@ -125,21 +140,10 @@ export default state => html`
                       </tr>
                     </table>
                   </div>
-                  <hr id="table-separator">
+                </div>
+                  <hr id="table-separator"></hr>
               </div>
             </div>
-          </div>
-
-          <div>
-            <h4>Fourth Title</h4>
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat
-              autem accusantium voluptate debitis ipsa animi aliquid dolore?
-              Suscipit consequatur architecto ullam perferendis praesentium sed
-              aliquid voluptatem quibusdam laborum, doloremque aut atque debitis
-              et laudantium qui veniam eligendi accusamus ipsam optio, assumenda
-              aliquam ipsum dolorem similique?
-            </p>
           </div>
         </div>
       </div>

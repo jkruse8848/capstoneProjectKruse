@@ -1,3 +1,4 @@
 export default {
-  view: "Guide"
+  view: "Guide",
+  cases: {}
 };
