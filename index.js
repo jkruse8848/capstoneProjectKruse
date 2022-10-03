@@ -29,6 +29,38 @@ function afterRender(state) {
     document.querySelector("nav > ul").classList.toggle("hidden--mobile");
   });
 
+  // // //Modal Container
+  // let modal = document.getElementById("upload-modal");
+  // let mediaBox = document.getElementById("media-upload");
+  // let modalClose = document.getElementsByClassName("fa-window-close")[0];
+  // mediaBox.onclick = function() {
+  //   modal.style.display = "block";
+  // };
+  // modalClose.onclick = function() {
+  //   modal.style.display = "none";
+  // };
+  // window.onclick = function(event) {
+  //   if (event.target == modal) {
+  //     modal.style.display = "none";
+  //   }
+  // };
+
+  //Tabbed Containers for Dossier Page
+  let tabs = document.querySelectorAll(".dossier-tabs h3");
+  let tabContents = document.querySelectorAll(".tab-content div");
+  tabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => {
+      tabContents.forEach(content => {
+        content.classList.remove("active");
+      });
+      tabs.forEach(tab => {
+        tab.classList.remove("active");
+      });
+      tabContents[index].classList.add("active");
+      tabs[index].classList.add("active");
+    });
+  });
+
   //Map Box Installation
   let mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
 
@@ -106,37 +138,7 @@ function afterRender(state) {
 
   //Place holder for selected nav
 
-  //Tabbed Containers for Dossier Page
-  let tabs = document.querySelectorAll(".dossier-tabs h3");
-  let tabContents = document.querySelectorAll(".tab-content div");
-  tabs.forEach((tab, index) => {
-    tab.addEventListener("click", () => {
-      tabContents.forEach(content => {
-        content.classList.remove("active");
-      });
-      tabs.forEach(tab => {
-        tab.classList.remove("active");
-      });
-      tabContents[index].classList.add("active");
-      tabs[index].classList.add("active");
-    });
-  });
-
-  // //Modal for Home Page
-  // let modal = document.getElementById("upload-modal");
-  // let mediaBox = document.getElementById("media-upload");
-  // let modalClose = document.getElementsByClassName("fa-window-close")[0];
-  // mediaBox.onclick = function() {
-  //   modal.style.display = "block";
-  // };
-  // modalClose.onclick = function() {
-  //   modal.style.display = "none";
-  // };
-  // window.onclick = function(event) {
-  //   if (event.target == modal) {
-  //     modal.style.display = "none";
-  //   }
-  // };
+  // //Modal for Home
 }
 
 // Retrieve data from API
@@ -147,6 +149,23 @@ router.hooks({
         ? capitalize(params.data.view)
         : "Dispatch";
 
+    //         switch (view) {
+    //           case "Dispatch":
+    //             axios
+    //             .get(`https://data.nashville.gov/resource/2u6v-ujjs.json`)
+    //             .then(response => {
+    //               store.Dispatch.cases = response.data;
+    //               done();
+    //         })
+
+    //         .catch(error => {
+    //           console.log("It didn't work", error);
+    //           break;
+    //           done();
+    //         }
+    //     }
+    //   }
+    // });
     // Add a switch case statement to handle multiple routes
     switch (view) {
       case "Dispatch":
@@ -164,7 +183,7 @@ router.hooks({
               const caseObj = {
                 type: "Feature",
                 properties: {
-                  description: `${offenseDescription} occurred near ${location} and was assigned ${caseName}. The current status of the case is ${investigationStatus}`
+                  description: `${offenseDescription} occurred near ${location} and was assigned case number: ${caseName}. The current status of the case is ${investigationStatus}`
                 },
                 geometry: {
                   type: "Point",

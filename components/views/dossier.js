@@ -39,46 +39,8 @@ export default state => html`
           <h3>Booking History</h3>
         </div>
         <div class="tab-content">
-          <div class="active">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
-              explicabo cum dolores hic possimus aut corrupti quisquam aperiam
-              quia veniam inventore officiis nam error sunt libero, commodi
-              architecto reiciendis qui fuga, itaque delectus quidem sequi.
-              Impedit natus culpa nihil aperiam adipisci aliquam error, suscipit
-              odio? Error sed esse perspiciatis quasi velit, ratione odit
-              architecto? Explicabo pariatur.
-            </p>
-          </div>
-
-          <div>
-            <div class="address-container">
-              <div class="address-properties">
-                <p>Last Reported Address:</p>
-                <p>Previous Address 1:</p>
-              </div>
-              <div class="address-property-values">
-                <p>123 Main Street, Nashville, TN 37208</p>
-                <p>7345 Higerth St Springfield, VA 22042</p>
-              </div>
-              <div class="map-holder">
-                <img id="map-placeholder" src="${mapPlaceholder}">
-              </div>
-            </div>
-          </div>
-          <div>
-            <h4>Third Title</h4>
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat
-              autem accusantium voluptate debitis ipsa animi aliquid dolore?
-              Suscipit consequatur architecto ullam perferendis praesentium sed
-              aliquid voluptatem quibusdam laborum, doloremque aut atque debitis
-              et laudantium qui veniam eligendi accusamus ipsam optio, assumenda
-              aliquam ipsum dolorem similique?
-            </p>
-          </div>
-          <div>
-            <div class="dossier-tab-wrapper">
+        <div>
+            <div class="dossier-tab-wrapper active">
               <div class="booking-history-container">
                 <div class="bond-booking-properties">
                   <div class="booking-properties">
@@ -144,6 +106,33 @@ export default state => html`
                   <hr id="table-separator"></hr>
               </div>
             </div>
+
+          <div>
+            <div class="address-container">
+              <div class="address-properties">
+                <p>Last Reported Address:</p>
+                <p>Previous Address 1:</p>
+              </div>
+              <div class="address-property-values">
+                <p>123 Main Street, Nashville, TN 37208</p>
+                <p>7345 Higerth St Springfield, VA 22042</p>
+              </div>
+              <div class="map-holder">
+                <img id="map-placeholder" src="${mapPlaceholder}">
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4>Third Title</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat
+              autem accusantium voluptate debitis ipsa animi aliquid dolore?
+              Suscipit consequatur architecto ullam perferendis praesentium sed
+              aliquid voluptatem quibusdam laborum, doloremque aut atque debitis
+              et laudantium qui veniam eligendi accusamus ipsam optio, assumenda
+              aliquam ipsum dolorem similique?
+            </p>
+          </div>
           </div>
         </div>
       </div>
