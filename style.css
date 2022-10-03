@@ -1215,3 +1215,14 @@ td {
   margin-left: 100px;
   box-shadow: 3px 3px 3px #8E8E8E;
 }
+
+#cases {
+  table-layout: fixed;
+  flex-wrap: wrap;
+  width: 100%;
+  border: #04455D 2px solid;
+}
+
+tr:nth-child(even) {
+  background-color: #F3F3F3;
+}

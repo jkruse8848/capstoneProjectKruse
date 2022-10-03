@@ -168,7 +168,7 @@ router.hooks({
     // });
     // Add a switch case statement to handle multiple routes
     switch (view) {
-      case "Dispatch":
+      case "Home":
         axios
           .get(`https://data.nashville.gov/resource/2u6v-ujjs.json`)
           .then(response => {
@@ -195,6 +195,19 @@ router.hooks({
               done();
           })
           .catch(err => console.log(err));
+        break;
+      case "Dispatch":
+        axios
+          .get(`https://data.nashville.gov/resource/2u6v-ujjs.json`)
+          .then(response => {
+            store.Dispatch.cases = response.data;
+            console.log(response.data);
+            done();
+          })
+          .catch(error => {
+            console.log("It puked", error);
+            done();
+          });
         break;
       default:
         done();
