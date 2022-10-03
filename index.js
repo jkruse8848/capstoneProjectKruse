@@ -64,7 +64,7 @@ function afterRender(state) {
   //Map Box Installation
   let mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
 
-  mapboxgl.accessToken = `pk.eyJ1Ijoiam9zZXBoa3J1c2U4OCIsImEiOiJjbDhsMWpzdzYwZHNhM3h0b3JmMmRleHIxIn0.qjbEVleLA-neNPToA_Ltkg`;
+  mapboxgl.accessToken = `${process.env.MAPBOX_TOKEN}`;
   const map = new mapboxgl.Map({
     container: `map`,
     style: `mapbox://styles/mapbox/streets-v11`,
