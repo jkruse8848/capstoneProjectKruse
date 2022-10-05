@@ -23,6 +23,7 @@
     "@mediapipe/face_mesh": "^0.4.1633559619",
     "@tensorflow-models/face-landmarks-detection": "^1.0.2",
     "@tensorflow/tfjs-backend-webgl": "^3.20.0",
+    "@tensorflow/tfjs-converter": "^3.20.0",
     "@tensorflow/tfjs-core": "^3.20.0",
     "axios": "^0.27.2",
     "dotenv": "^16.0.3",
