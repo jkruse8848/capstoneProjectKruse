@@ -5,11 +5,7 @@ import tomCruise2 from "/assets/img/tomCruise2.jpeg";
 export default state => html`
   <main>
     <div class="image-holder">
-      <img
-        src="https://i.imgur.com/rVqq48O.jpeg"
-        id="tensor-image"
-        crossorigin="anonymous"
-      />
+      <img src="${toddWike}" id="tensor-image" crossorigin="anonymous" />
     </div>
   </main>
 `;
