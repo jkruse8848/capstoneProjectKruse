@@ -1214,6 +1214,12 @@ td {
   justify-self: center;
   margin-left: 100px;
   box-shadow: 3px 3px 3px #8E8E8E;
+  overflow-y: hidden;
+}
+
+.mapbox-flex {
+  display: flex;
+  overflow-y: hidden;
 }
 
 #cases {
@@ -1225,4 +1231,11 @@ td {
 
 tr:nth-child(even) {
   background-color: #F3F3F3;
+}
+
+/* Notifications Page */
+.image-holder {
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }

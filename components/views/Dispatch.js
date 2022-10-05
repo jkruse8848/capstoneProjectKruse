@@ -2,7 +2,9 @@ import html from "html-literal";
 
 export default state => html`
   <main>
-    <div id="map"></div>
+    <div class="mapbox-flex">
+      <div id="map"></div>
+    </div>
     <hr />
     <table id="cases">
       <tr id="tr-header">
@@ -12,7 +14,7 @@ export default state => html`
         <th>Case Status</th>
         <th>Offense Description</th>
       </tr>
-      ${state.cases
+      ${state.caseData
         .map(cases => {
           return `<tr><td>${cases.incident_number}</td><td>${cases.incident_location}</td><td>${cases.incident_occurred}</td><td>${cases.incident_status_description}</td><td>${cases.offense_description}</td></tr>`;
         })
