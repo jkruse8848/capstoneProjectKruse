@@ -2,55 +2,55 @@ export default [
   {
     title: "Home",
     class: "fas fa-home fa-lg",
-    id: "selected-nav",
+    id: "nav-icon1",
     text: "Home"
   },
   {
     title: "Search",
     class: "fas fa-search fa-lg",
-    id: "selected-nav",
+    id: "nav-icon2",
     text: "Search"
   },
   {
     title: "Dossier",
     class: "fas fa-table fa-lg",
-    id: "selected-nav",
+    id: "nav-icon3",
     text: "Dossier"
   },
   {
     title: "Notifications",
     class: "fas fa-bell fa-lg",
-    id: "selected-nav",
+    id: "nav-icon4",
     text: "Notifications"
   },
   {
     title: "Dispatch",
     class: "fas fa-map-marked-alt fa-lg",
-    id: "selected-nav",
+    id: "nav-icon5",
     text: "Current Dispatch"
   },
   {
     title: "About",
     class: "fas fa-info-circle fa-lg",
-    id: "selected-nav",
+    id: "nav-icon6",
     text: "About"
   },
   {
     title: "Contact",
     class: "fas fa-comment-alt fa-lg",
-    id: "selected-nav",
+    id: "nav-icon7",
     text: "Contact"
   },
   {
     title: "Guide",
     class: "fas fa-file-alt fa-lg",
-    id: "selected-nav",
+    id: "nav-icon8",
     text: "User Guide"
   },
   {
     title: "User",
     class: "fas fa-user-shield fa-lg",
-    id: "selected-nav",
+    id: "nav-icon9",
     text: "User Profile"
   }
 ];

@@ -5,20 +5,33 @@ export default state => html`
     <div class="mapbox-flex">
       <div id="map"></div>
     </div>
-    <hr />
-    <table id="cases">
-      <tr id="tr-header">
-        <th>Case Number</th>
-        <th>Incident Location</th>
-        <th>Incident Occurred</th>
-        <th>Case Status</th>
-        <th>Offense Description</th>
-      </tr>
-      ${state.caseData
-        .map(cases => {
-          return `<tr><td>${cases.incident_number}</td><td>${cases.incident_location}</td><td>${cases.incident_occurred}</td><td>${cases.incident_status_description}</td><td>${cases.offense_description}</td></tr>`;
-        })
-        .join("")}
-    </table>
+    <div class="case-data">
+      <div class="filter-holder">
+        <div class="fas fa-filter" id="media-icon"></div>
+        <p>Filter Cases:</p>
+        <input
+          class="table-filter"
+          type="text"
+          id="case-table-filter"
+          placeholder="Search by Offense Description or Case Number..."
+        />
+      </div>
+      <table id="cases">
+        <tr id="tr-header">
+          <th>Case Number</th>
+          <th>Incident Location</th>
+          <th>Incident Occurred</th>
+          <th>Case Status</th>
+          <th>Offense Description</th>
+        </tr>
+        <tbody id="case-body">
+          ${state.caseData
+            .map(cases => {
+              return `<tr><td>${cases.incident_number}</td><td>${cases.incident_location}</td><td>${cases.incident_occurred}</td><td>${cases.incident_status_description}</td><td>${cases.offense_description}</td></tr>`;
+            })
+            .join("")}
+        </tbody>
+      </table>
+    </div>
   </main>
 `;

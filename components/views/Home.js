@@ -15,7 +15,7 @@ export default state => html`
             <div class="fas fa-chalkboard-teacher fa-2x" id="media-icon"></div>
             <p>Training</p>
           </div>
-          <a href="/Guide.html" class="help-item">
+          <a href="/Guide" class="help-item">
             <div class="fas fa-file-alt fa-2x" id="media-icon"></div>
             <p>User Guide</p>
           </a>

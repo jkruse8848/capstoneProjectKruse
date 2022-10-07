@@ -6,11 +6,9 @@ import axios from "axios";
 import item from "/assets/img/case.png";
 import tomCruise2 from "/assets/img/tomCruise2.jpeg";
 import toddWike from "/assets/img/Todd_Wike_0001.jpg";
-import "@mediapipe/face_mesh";
-import * as tf from "@tensorflow/tfjs-core";
-import "@tensorflow/tfjs-backend-webgl";
-import * as faceLandmarksDetection from "@tensorflow-models/face-landmarks-detection";
-import { image } from "@tensorflow/tfjs-core";
+import * as faceapi from "face-api.js";
+import * as $ from "jquery";
+import { doc } from "prettier";
 
 const router = new Navigo("/");
 
@@ -32,6 +30,35 @@ async function afterRender(state) {
   document.querySelector(".fa-bars").addEventListener("click", () => {
     document.querySelector("nav > ul").classList.toggle("hidden--mobile");
   });
+
+  // Selected Navigation
+  if (state.view === "Home") {
+    document.getElementById("nav-icon1").id = "nav-icon-selected";
+  }
+  if (state.view === "Search") {
+    document.getElementById("nav-icon2").id = "nav-icon-selected";
+  }
+  if (state.view === "Dossier") {
+    document.getElementById("nav-icon3").id = "nav-icon-selected";
+  }
+  if (state.view === "Notifications") {
+    document.getElementById("nav-icon4").id = "nav-icon-selected";
+  }
+  if (state.view === "Dispatch") {
+    document.getElementById("nav-icon5").id = "nav-icon-selected";
+  }
+  if (state.view === "About") {
+    document.getElementById("nav-icon6").id = "nav-icon-selected";
+  }
+  if (state.view === "Contact") {
+    document.getElementById("nav-icon7").id = "nav-icon-selected";
+  }
+  if (state.view === "Guide") {
+    document.getElementById("nav-icon8").id = "nav-icon-selected";
+  }
+  if (state.view === "User") {
+    document.getElementById("nav-icon9").id = "nav-icon-selected";
+  }
 
   // //Modal Container
   if (state.view === "Home") {
@@ -67,35 +94,6 @@ async function afterRender(state) {
       });
     });
   }
-
-  // if (state.view === "Dispatch") {
-  //   axios
-  //     .get(`https://data.nashville.gov/resource/2u6v-ujjs.json`)
-  //     .then(response => {
-  //       console.log(response.data);
-  //       response.data.forEach(cases => {
-  //         let caseName = cases.incident_number;
-  //         let offenseDescription = cases.offense_description;
-  //         let location = cases.incident_location;
-  //         let investigationStatus = cases.investigation_status;
-  //         let lon = cases.longitude;
-  //         let lat = cases.latitude;
-  //         const caseObj = {
-  //           type: "Feature",
-  //           properties: {
-  //             description: `${offenseDescription} occurred near ${location} and was assigned case number: ${caseName}. The current status of the case is ${investigationStatus}`
-  //           },
-  //           geometry: {
-  //             type: "Point",
-  //             coordinates: [`${lon}`, `${lat}`]
-  //           }
-  //         };
-  //         console.log(caseObj);
-  //       }),
-  //         done();
-  //     })
-  //     .catch(err => console.log(err));
-  // }
 
   //Map Box Installation
 
@@ -173,41 +171,32 @@ async function afterRender(state) {
         popup.remove();
       });
     });
+    $(document).ready(function() {
+      $("#case-table-filter").on("keyup", function() {
+        var value = $(this)
+          .val()
+          .toLowerCase();
+        $("#case-body tr").filter(function() {
+          $(this).toggle(
+            $(this)
+              .text()
+              .toLowerCase()
+              .indexOf(value) > -1
+          );
+        });
+      });
+    });
   }
-  // //Dossier Model
   if (state.view === "Notifications") {
-    let img = document.getElementById("tensor-image");
-    img.crossOrigin = "Anonymous";
-
-    console.log("Loading Model");
-
-    const model = faceLandmarksDetection.SupportedModels.MediaPipeFaceMesh;
-    const detectorConfig = {
-      runtime: "mediapipe",
-      solutionPath: "https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh"
-    };
-    let detector = await faceLandmarksDetection.createDetector(
-      model,
-      detectorConfig
-    );
-
-    const faces = await detector.estimateFaces({ input: img }, false);
-    console.log(faces);
-    return faces;
+    document
+      .getElementsByClassName("upload-container")
+      .addEventListener(
+        "click",
+        () =>
+          (document.getElementsByClassName("upload-container").class =
+            "selected-upload")
+      );
   }
-
-  // const detectorConfig = {
-  //   runtime: "mediapipe",
-  //   solutionPath: "https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh"
-  // };
-  // let detector = await faceLandmarksDetection.createDetector(
-  //   model,
-  //   detectorConfig
-  // );
-  // const estimationConfig = { flipHorizontal: false };
-  // tf.fill([toddWike.height, toddWike.width, 3], 0, "float32");
-  // const faces = await detector.estimateFaces(toddWike, estimationConfig);
-  // console.log(faces);
 }
 // //Modal for Home
 

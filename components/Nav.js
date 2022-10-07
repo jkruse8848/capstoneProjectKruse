@@ -26,7 +26,7 @@ export default links => html`
       ${links
         .map(
           link =>
-            `<a href="/${link.title}" class="${link.class}" id="nav-icon" data-navigo>
+            `<a href="/${link.title}" class="${link.class}" id="${link.id}" data-navigo>
               <p id="nav-bar-text">${link.text}</p>
             </a>`
         )
