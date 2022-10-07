@@ -187,16 +187,6 @@ async function afterRender(state) {
       });
     });
   }
-  if (state.view === "Notifications") {
-    document
-      .getElementsByClassName("upload-container")
-      .addEventListener(
-        "click",
-        () =>
-          (document.getElementsByClassName("upload-container").class =
-            "selected-upload")
-      );
-  }
 }
 // //Modal for Home
 

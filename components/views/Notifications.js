@@ -16,7 +16,7 @@ export default state => html`
           />
         </div>
         <div class="upload-notifications-holder">
-          <div class="upload-container">
+          <div class="upload-container" id="upload-container-id">
             <div class="fas fa-inbox fa-lg" id="uploads-icon"></div>
             <div class="case-jus-holder">
               <div class="case-number-upload">
@@ -30,7 +30,7 @@ export default state => html`
               <p>10/24/2022</p>
             </div>
           </div>
-          <div class="upload-container">
+          <div class="upload-container" id="upload-container-id">
             <div class="fas fa-inbox fa-lg" id="uploads-icon"></div>
             <div class="case-jus-holder">
               <div class="case-number-upload">

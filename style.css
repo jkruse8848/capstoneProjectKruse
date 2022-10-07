@@ -1363,7 +1363,7 @@ tr:nth-child(odd) {
   overflow: scroll;
 }
 
-.upload-container {
+#upload-container-id {
   display: flex;
   flex-direction: row;
   background-color: #FFFFFF;
@@ -1372,7 +1372,7 @@ tr:nth-child(odd) {
   font-weight: 500;
 }
 
-.upload-container:hover {
+#upload-container-id:hover {
   display: flex;
   flex-direction: row;
   background-color: #FFFFFF;
@@ -1381,7 +1381,7 @@ tr:nth-child(odd) {
   font-weight: 900;
 }
 
-.selected-upload {
+#selected-upload {
   display: flex;
   flex-direction: row;
   background-color: #FFFFFF;
