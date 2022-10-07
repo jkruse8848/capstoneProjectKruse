@@ -4,11 +4,7 @@ import Navigo from "navigo";
 import { capitalize } from "lodash";
 import axios from "axios";
 import item from "/assets/img/case.png";
-import tomCruise2 from "/assets/img/tomCruise2.jpeg";
-import toddWike from "/assets/img/Todd_Wike_0001.jpg";
-import * as faceapi from "face-api.js";
 import * as $ from "jquery";
-import { doc } from "prettier";
 
 const router = new Navigo("/");
 
@@ -188,7 +184,6 @@ async function afterRender(state) {
     });
   }
 }
-// //Modal for Home
 
 // Retrieve data from API
 router.hooks({
@@ -197,25 +192,6 @@ router.hooks({
       params && params.data && params.data.view
         ? capitalize(params.data.view)
         : "Dispatch";
-
-    //         switch (view) {
-    //           case "Dispatch":
-    //             axios
-    //             .get(`https://data.nashville.gov/resource/2u6v-ujjs.json`)
-    //             .then(response => {
-    //               store.Dispatch.cases = response.data;
-    //               done();
-    //         })
-
-    //         .catch(error => {
-    //           console.log("It didn't work", error);
-    //           break;
-    //           done();
-    //         }
-    //     }
-    //   }
-    // });
-    // Add a switch case statement to handle multiple routes
     switch (view) {
       case "Dispatch":
         axios
