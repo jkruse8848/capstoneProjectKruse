@@ -61,6 +61,10 @@ export default state => html`
           <input type="text" name="subject" id="media-modal-justification" />
         </label>
         <label id="contact-form-input"
+          >Submission Date:
+          <input type="text" name="subject" id="media-modal-date" />
+        </label>
+        <label id="contact-form-input"
           >Upload file:
           <input type="file" name="upload" id="media-modal-upload-file" />
         </label>

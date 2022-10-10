@@ -40,8 +40,8 @@ export default state => html`
         </div>
         <div class="tab-content">
         <div>
-            <div class="dossier-tab-wrapper active">
-              <div class="booking-history-container">
+            <div class="tab-wrapper">
+              <div class="booking-history-container active">
                 <div class="bond-booking-properties">
                   <div class="booking-properties">
                     <p>Booking Number:</p>
@@ -108,7 +108,7 @@ export default state => html`
             </div>
 
           <div>
-            <div class="address-container">
+            <div class="tab-wrapper">
               <div class="address-properties">
                 <p>Last Reported Address:</p>
                 <p>Previous Address 1:</p>

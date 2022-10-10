@@ -72,12 +72,26 @@ async function afterRender(state) {
         modal.style.display = "none";
       }
     };
+    let date = new Date();
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    let hour = date.getHours();
+    let min = date.getMinutes();
+    let sec = date.getSeconds();
+    if (month < 10) month = "0" + month;
+    if (day < 10) day = "0" + day;
+    if (hour < 10) hour = "0" + hour;
+    if (min < 10) min = "0" + min;
+    if (sec < 10) sec = "0" + sec;
+    let today = `${month}/${day}/${year} ${hour}:${min}:${sec}`;
+    document.getElementById("media-modal-date").value = today;
   }
   //Tabbed Containers for Dossier Page
   if (state.view === "Dossier") {
-    let tabs = document.querySelectorAll(".dossier-tabs h3");
-    let tabContents = document.querySelectorAll(".tab-content div");
-    tabs.forEach((tab, index) => {
+    let update = document.querySelectorAll(".upload-container");
+    let tabContents = document.querySelectorAll(".tab-wrapper");
+    update.forEach((tab, index) => {
       tab.addEventListener("click", () => {
         tabContents.forEach(content => {
           content.classList.remove("active");
@@ -110,7 +124,7 @@ async function afterRender(state) {
         if (error) throw error;
 
         // Add the image to the map style.
-        map.addImage("case", image);
+        //map.addImage("case", image);
 
         // Add a data source containing one point feature.
         map.addSource("places", {
@@ -183,6 +197,24 @@ async function afterRender(state) {
       });
     });
   }
+  // Notifications Page
+  if (state === "Notifications") {
+    // $(document).ready(function() {
+    //   $("#uploads-filter-notifications").on("keyup", function() {
+    //     var value = $(this)
+    //       .val()
+    //       .toLowerCase();
+    //     $("#case-jus-holder-id div").filter(function() {
+    //       $(this).toggle(
+    //         $(this)
+    //           .text()
+    //           .toLowerCase()
+    //           .indexOf(value) > -1
+    //       );
+    //     });
+    //   });
+    // });
+  }
 }
 
 // Retrieve data from API
@@ -223,6 +255,19 @@ router.hooks({
               done();
           })
           .catch(err => console.log(err));
+        break;
+      case "Notifications":
+        axios
+          .get(`http://localhost:4040/uploads`)
+          .then(response => {
+            store.Notifications.uploads = response.data;
+            console.log(response.data);
+            done();
+          })
+          .catch(error => {
+            console.log("Uploads not working", error);
+            done();
+          });
         break;
       default:
         done();

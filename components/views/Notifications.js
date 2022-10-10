@@ -16,36 +16,82 @@ export default state => html`
           />
         </div>
         <div class="upload-notifications-holder">
-          <div class="upload-container" id="upload-container-id">
+          ${state.uploads.map(upload => {
+            return `<div class="upload-container">
             <div class="fas fa-inbox fa-lg" id="uploads-icon"></div>
-            <div class="case-jus-holder">
-              <div class="case-number-upload">
-                <p>2022-05-0004</p>
+            <div class="case-jus-holder" id="case-jus-holder-id">
+              <div class="case-number-upload" id="case-number-for-uploads">
+                <p>${upload.casenumber}</p>
               </div>
               <div class="justification-upload">
-                <p>Robbery Occurred and Suspect was caught on camera</p>
+                <p>${upload.justification}</p>
               </div>
             </div>
             <div class="date-holder">
-              <p>10/24/2022</p>
+              <p>${upload.date}</p>
             </div>
+          </div>`;
+          })}
+        </div>
+      </div>
+    </div>
+    <div class="notification-content">
+      <p>CASE NUMBER 01</p>
+      <div class="upload-photo-container">
+        <div class="photo-box">
+          <div class="upload-photos">
+            <img id="uploaded-photo" />
           </div>
-          <div class="upload-container" id="upload-container-id">
-            <div class="fas fa-inbox fa-lg" id="uploads-icon"></div>
-            <div class="case-jus-holder">
-              <div class="case-number-upload">
-                <p>2022-05-0004</p>
-              </div>
-              <div class="justification-upload">
-                <p>Robbery Occurred and Suspect was caught on camera</p>
-              </div>
-            </div>
-            <div class="date-holder">
-              <p>10/24/2022</p>
-            </div>
+          <div class="photo-text">
+            <p>Uploaded Photo</p>
+          </div>
+        </div>
+        <div
+          class="fas fa-arrow-alt-circle-right fa-4x"
+          id="transform-circle"
+        ></div>
+        <div class="photo-box">
+          <div class="upload-photos">
+            <img id="uploaded-photo" src="${toddWike}" />
+          </div>
+          <div class="photo-text">
+            <p>Processed Photo</p>
           </div>
         </div>
       </div>
+      <div class="match-results-header">
+        <p>Match Results</p>
+      </div>
+      <div class="match-results-container"></div>
+    </div>
+    <div class="notification-content">
+      <p>CASE NUMBER 02</p>
+      <div class="upload-photo-container">
+        <div class="photo-box">
+          <div class="upload-photos">
+            <img id="uploaded-photo" src="${tomCruise2}" />
+          </div>
+          <div class="photo-text">
+            <p>Uploaded Photo</p>
+          </div>
+        </div>
+        <div
+          class="fas fa-arrow-alt-circle-right fa-4x"
+          id="transform-circle"
+        ></div>
+        <div class="photo-box">
+          <div class="upload-photos">
+            <img id="uploaded-photo" />
+          </div>
+          <div class="photo-text">
+            <p>Processed Photo</p>
+          </div>
+        </div>
+      </div>
+      <div class="match-results-header">
+        <p>Match Results</p>
+      </div>
+      <div class="match-results-container"></div>
     </div>
   </main>
 `;
