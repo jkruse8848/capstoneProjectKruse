@@ -11,6 +11,7 @@ export default state => html`
         placeholder="Run Your Search Here..."
       />
       <div class="fas fa-filter fa-lg" id="header-search2"></div>
+      <section id="search-results-type-ahead"></section>
     </div>
   </header>
 `;

@@ -33,109 +33,82 @@ export default state => html`
   <!-- Tab content -->
       <div class="tabbed-container">
         <div class="dossier-tabs">
-          <h3 class="active">Biographic Data</h3>
-          <h3>Known Addresses</h3>
-          <h3>Notes & Activity</h3>
-          <h3>Booking History</h3>
+          <h3 class="dos-tab-header active">Biographic Data</h3>
+          <h3 class="dos-tab-header">Booking History</h3>
+          <h3 class="dos-tab-header">Known Addresses</h3>
+          <h3 class="dos-tab-header">Notes & Activity</h3>
         </div>
-        <div class="tab-content">
-        <div>
-            <div class="tab-wrapper">
-              <div class="booking-history-container active">
-                <div class="bond-booking-properties">
-                  <div class="booking-properties">
-                    <p>Booking Number:</p>
-                    <p>Booking Date:</p>
-                    <p>Release Date:</p>
-                    <p>Prisoner Type:</p>
-                    <p>Housing Facility:</p>
-                    <p>Total Bond Amount:</p>
-                    <p>Total Bail Amount:</p>
-                    <p>Booking Origin:</p>
-                  </div>
-                  <div class="booking-property-values">
-                    <p>inmate.bookingNumber</p>
-                    <p>inmate.bookingDate</p>
-                    <p>inmate.releaseDate</p>
-                    <p>inmate.prisonerType</p>
-                    <p>inmate.facility</p>
-                    <p>inmate.boundAmount</p>
-                    <p>inmate.bailAmount</p>
-                    <p>inmate.agency</p>
-                  </div>
-                  <table class="bond-table">
-                    <tr id="tr-header">
-                      <th>Bond Number</th>
-                      <th>Bond Type</th>
-                      <th>Bond Amount</th>
-                    </tr>
-                    <tr>
-                      <td>inmate.bondNumber</td>
-                      <td>inmate.bondType</td>
-                      <td>inmate.bondAmount</td>
-                    </tr>
-                  </table>
-                </div>
-                  <div class="charge-table-container">
-                    <table class="charge-table">
-                      <tr id="tr-header">
-                        <th>Charge Description</th>
-                        <th>Offense Date</th>
-                        <th>Docket Number</th>
-                        <th>Sentence Date</th>
-                        <th>Disposition</th>
-                        <th>Sentence Length</th>
-                        <th>Crime Class</th>
-                        <th>Court Date</th>
-                        <th>Arresting Agency</th>
-                      </tr>
-                      <tr>
-                        <td>inmate.chargeDescription</td>
-                        <td>inmate.offenseDate</td>
-                        <td>inmate.docketNumber</td>
-                        <td>inmate.sentenceDate</td>
-                        <td>inmate.disposition</td>
-                        <td>inmate.sentenceLength</td>
-                        <td>inmate.crimeClass</td>
-                        <td>inmate.courtDate</td>
-                        <td>inmate.arrestingAgency</td>
-                      </tr>
-                    </table>
-                  </div>
-                </div>
-                  <hr id="table-separator"></hr>
-              </div>
+        <div class="tabbed-information active">
+          <div class="bio-properties">
+            <div class="bio-property-values">
+              <p>Gender:</p>
+              <p>Age:</p>
+              <p>Reported Email:</p>
+              <p>Mother's Maiden:</p>
+              <p>Occupation:</p>
             </div>
-
-          <div>
-            <div class="tab-wrapper">
-              <div class="address-properties">
-                <p>Last Reported Address:</p>
-                <p>Previous Address 1:</p>
-              </div>
-              <div class="address-property-values">
-                <p>123 Main Street, Nashville, TN 37208</p>
-                <p>7345 Higerth St Springfield, VA 22042</p>
-              </div>
-              <div class="map-holder">
-                <img id="map-placeholder" src="${mapPlaceholder}">
-              </div>
+            <div class="bio-property-values">
+              <p>Gender:Value</p>
+              <p>Age:Value</p>
+              <p>Reported Email:Value</p>
+              <p>Mother's Maiden:Value</p>
+              <p>Occupation:Value</p>
+            </div>
+            <div class="bio-property-values">
+              <p>Employment:</p>
+              <p>Blood Type:</p>
+              <p>Weight:</p>
+              <p>Height:</p>
+            </div>
+            <div class="bio-property-values">
+              <p>Employment:Value</p>
+              <p>Blood Type:Value</p>
+              <p>Weight:Value</p>
+              <p>Height:Value</p>
             </div>
           </div>
-          <div>
-            <h4>Third Title</h4>
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat
-              autem accusantium voluptate debitis ipsa animi aliquid dolore?
-              Suscipit consequatur architecto ullam perferendis praesentium sed
-              aliquid voluptatem quibusdam laborum, doloremque aut atque debitis
-              et laudantium qui veniam eligendi accusamus ipsam optio, assumenda
-              aliquam ipsum dolorem similique?
-            </p>
+        </div>
+        <div class="tabbed-information">
+          <div class="bio-properties">
+            <div class="booking-data-holder">
+              <p>Booking Number:</p>
+              <p>Booking Date:</p>
+              <p>Release Date:</p>
+              <p>Sentence Length:</p>
+              <p>Holding Facility:</p>
+              <p>Bond Amount:</p>
+              <p>Bail Amount:</p>
+              <p>Holding Agency:</p>
+            </div>
+            <div class="booking-data-holder">
+              <p>Value</p>
+              <p>Value</p>
+              <p>Value</p>
+              <p>Value</p>
+              <p>Value</p>
+              <p>Value</p>
+              <p>Value</p>
+              <p>Value</p>
+            </div>
           </div>
+        </div>
+        <div class="tabbed-information">
+          <div class="bio-properties">
+            <div class="bio-property-values">
+              <p>Address:</p>
+            </div>
+            <div id="map"></div>
+          </div>
+        </div>
+        <div class="tabbed-information">
+          <div class="bio-properties">
+            <div class="bio-property-values">
+              <p>NOTES AND ACTIVITY PLACE HOLDER</p>
+            </div>
           </div>
         </div>
       </div>
+    </div>
 </div>
 </div>
 </main>`;

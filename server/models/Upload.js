@@ -13,8 +13,7 @@ const uploadSchema = new mongoose.Schema({
   },
   date: {
     type: String,
-    required: true,
-    validate: /^\d{2}\/\d{2}\/\d{4} (?:2[0-3]|[01]?[0-9]):[0-5][0-9]:[0-5][0-9]/
+    required: true
   }
 });
 

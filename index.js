@@ -5,6 +5,7 @@ import { capitalize } from "lodash";
 import axios from "axios";
 import item from "/assets/img/case.png";
 import * as $ from "jquery";
+import * as faceapi from "face-api.js";
 
 const router = new Navigo("/");
 
@@ -25,6 +26,31 @@ async function afterRender(state) {
   // add menu toggle to bars icon in nav bar
   document.querySelector(".fa-bars").addEventListener("click", () => {
     document.querySelector("nav > ul").classList.toggle("hidden--mobile");
+  });
+
+  //Header Search
+  document.getElementById("site-search").addEventListener("keypress", event => {
+    if (event.key === "Enter") {
+      let inputValue = event.target.value;
+      axios
+        .get("http://localhost:4040/inmates")
+        .then(response => {
+          store.Search.returnedInmates = response.data;
+          console.log(response.data);
+          store.Search.searchResults = [];
+          let passBetween = localStorage.setItem(
+            "myItem",
+            store.Search.searchResults
+          );
+          const searching = store.Search.returnedInmates.filter(
+            inmate => inmate.fullname == inputValue
+          );
+          store.Search.searchResults.push(searching);
+          console.log(store.Search.searchResults);
+          console.log(passBetween);
+        })
+        .then(window.location.replace("Search", "test", "/Search"));
+    }
   });
 
   // Selected Navigation
@@ -86,12 +112,40 @@ async function afterRender(state) {
     if (sec < 10) sec = "0" + sec;
     let today = `${month}/${day}/${year} ${hour}:${min}:${sec}`;
     document.getElementById("media-modal-date").value = today;
+
+    //Sending data from modal
+    document
+      .getElementById("upload-modal")
+      .addEventListener("submit", event => {
+        event.preventDefault();
+
+        const inputs = event.target.elements;
+        console.log("Input Element List", inputs);
+
+        const requestData = {
+          casenumber: inputs.casenumber.value,
+          justification: inputs.justification.value,
+          date: inputs.dateofupload.value
+        };
+        console.log("request body", requestData);
+
+        axios
+          .post(`http://localhost:4040/uploads`, requestData)
+          .then(response => {
+            store.Notifications.uploads.push(response.data);
+            router.navigate("/Notifications");
+            window.location.replace("/Notifications");
+          })
+          .catch(error => {
+            console.log("Not Working", error);
+          });
+      });
   }
   //Tabbed Containers for Dossier Page
   if (state.view === "Dossier") {
-    let update = document.querySelectorAll(".upload-container");
-    let tabContents = document.querySelectorAll(".tab-wrapper");
-    update.forEach((tab, index) => {
+    let tabs = document.querySelectorAll(".dos-tab-header");
+    let tabContents = document.querySelectorAll(".tabbed-information");
+    tabs.forEach((tab, index) => {
       tab.addEventListener("click", () => {
         tabContents.forEach(content => {
           content.classList.remove("active");
@@ -196,24 +250,37 @@ async function afterRender(state) {
         });
       });
     });
+
+    const rowCount = document.getElementById("cases").rows.length;
+    const rows = document.getElementsByTagName("button");
+    for (let i = 0; i < rowCount; i++) {
+      rows[i].setAttribute("id", i);
+    }
+
+    const tableButtons = document.querySelectorAll(".case-submit");
+    tableButtons.forEach(el =>
+      el.addEventListener("click", event => console.log(event.target.id - 1))
+    );
   }
-  // Notifications Page
-  if (state === "Notifications") {
-    // $(document).ready(function() {
-    //   $("#uploads-filter-notifications").on("keyup", function() {
-    //     var value = $(this)
-    //       .val()
-    //       .toLowerCase();
-    //     $("#case-jus-holder-id div").filter(function() {
-    //       $(this).toggle(
-    //         $(this)
-    //           .text()
-    //           .toLowerCase()
-    //           .indexOf(value) > -1
-    //       );
-    //     });
-    //   });
-    // });
+  if (state.view === "Notifications") {
+    let tabs = document.querySelectorAll(".upload-container");
+    let tabContents = document.querySelectorAll(".notification-content");
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => {
+        tabContents.forEach(content => {
+          content.classList.remove("active");
+        });
+        tabs.forEach(tab => {
+          tab.classList.remove("active");
+        });
+        tabContents[index].classList.add("active");
+        tabs[index].classList.add("active");
+      });
+    });
+  }
+  if (state.view === "Search") {
+    let results = JSON.parse(localStorage.getItem("myItem"));
+    console.log(results);
   }
 }
 
@@ -266,6 +333,15 @@ router.hooks({
           })
           .catch(error => {
             console.log("Uploads not working", error);
+            done();
+          });
+        break;
+      case "Dossier":
+        axios
+          .get(`http://localhost:4040/inmates/63476ebe803e5d4215e1e575`)
+          .then(response => {
+            store.Dossier.inmate = response.data;
+            console.log(response.data);
             done();
           });
         break;

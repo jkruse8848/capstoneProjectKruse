@@ -35,8 +35,9 @@ export default state => html`
         </div>
       </div>
     </div>
-    <div class="notification-content">
-      <p>CASE NUMBER 01</p>
+    ${state.uploads.map(upload => {
+      return `<div class="notification-content">
+      <p>${upload.casenumber}</p>
       <div class="upload-photo-container">
         <div class="photo-box">
           <div class="upload-photos">
@@ -63,35 +64,7 @@ export default state => html`
         <p>Match Results</p>
       </div>
       <div class="match-results-container"></div>
-    </div>
-    <div class="notification-content">
-      <p>CASE NUMBER 02</p>
-      <div class="upload-photo-container">
-        <div class="photo-box">
-          <div class="upload-photos">
-            <img id="uploaded-photo" src="${tomCruise2}" />
-          </div>
-          <div class="photo-text">
-            <p>Uploaded Photo</p>
-          </div>
-        </div>
-        <div
-          class="fas fa-arrow-alt-circle-right fa-4x"
-          id="transform-circle"
-        ></div>
-        <div class="photo-box">
-          <div class="upload-photos">
-            <img id="uploaded-photo" />
-          </div>
-          <div class="photo-text">
-            <p>Processed Photo</p>
-          </div>
-        </div>
-      </div>
-      <div class="match-results-header">
-        <p>Match Results</p>
-      </div>
-      <div class="match-results-container"></div>
-    </div>
+    </div>`;
+    })}
   </main>
 `;

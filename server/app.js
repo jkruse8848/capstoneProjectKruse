@@ -1,10 +1,13 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
+const multer = require("multer");
+const { GridFsStorage } = require("multer-gridfs-storage");
 const inmates = require("./routers/inmates");
 const uploads = require("./routers/uploads");
 const bookings = require("./routers/bookings");
 const charges = require("./routers/charges");
+const bonds = require("./routers/bonds");
 const bodyParser = require("body-parser");
 
 dotenv.config();
@@ -64,11 +67,19 @@ app.use("/inmates", inmates);
 app.use("/uploads", uploads);
 app.use("/bookings", bookings);
 app.use("charges", charges);
+app.use("/bonds", bonds);
 app.use(express.static("public"));
-app.post("/getInmates", (request, response) => {
-  let payload = request.body.payload.trim();
-  console.log(payload);
-});
+
+// app.post("/inmates/find", async (request, response) => {
+//   let payload = request.body.payload.trim();
+//   let search = await inmates
+//     .find({
+//       fullname: { $regex: new RegExp("^" + payload + ".*", "i") }
+//     })
+//     .exec();
+//   search = search.slice(0, 10);
+//   response.send({ payload: search });
+// });
 
 const PORT = process.env.PORT || 4040; // we use || to provide a default value
 // Tell the Express app to start listening

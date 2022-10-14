@@ -23,11 +23,12 @@ export default state => html`
           <th>Incident Occurred</th>
           <th>Case Status</th>
           <th>Offense Description</th>
+          <th>Submit</th>
         </tr>
         <tbody id="case-body">
           ${state.caseData
             .map(cases => {
-              return `<tr><td>${cases.incident_number}</td><td>${cases.incident_location}</td><td>${cases.incident_occurred}</td><td>${cases.incident_status_description}</td><td>${cases.offense_description}</td></tr>`;
+              return `<tr><td id="case-test">${cases.incident_number}</td><td>${cases.incident_location}</td><td>${cases.incident_occurred}</td><td>${cases.incident_status_description}</td><td>${cases.offense_description}</td><td><button class="case-submit" id="process-case">Process Case</button></td></tr>`;
             })
             .join("")}
         </tbody>

@@ -8,7 +8,7 @@ const inmateSchema = new mongoose.Schema({
   },
   fullname: {
     type: String,
-    required: true,
+    required: false,
     validate: /^[A-Za-z0-9 ]*$/
   },
   mothersmaiden: {
@@ -36,7 +36,7 @@ const inmateSchema = new mongoose.Schema({
   },
   inmateid: {
     type: String,
-    required: true,
+    required: false,
     validate: /^[A-Za-z0-9 ]*$/
   },
   heightcentimeters: {
