@@ -66,7 +66,7 @@ app.get("/echo/:input", (request, response) => {
 app.use("/inmates", inmates);
 app.use("/uploads", uploads);
 app.use("/bookings", bookings);
-app.use("charges", charges);
+app.use("/charges", charges);
 app.use("/bonds", bonds);
 app.use(express.static("public"));
 

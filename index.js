@@ -32,24 +32,17 @@ async function afterRender(state) {
   document.getElementById("site-search").addEventListener("keypress", event => {
     if (event.key === "Enter") {
       let inputValue = event.target.value;
-      axios
-        .get("http://localhost:4040/inmates")
-        .then(response => {
-          store.Search.returnedInmates = response.data;
-          console.log(response.data);
-          store.Search.searchResults = [];
-          let passBetween = localStorage.setItem(
-            "myItem",
-            store.Search.searchResults
-          );
-          const searching = store.Search.returnedInmates.filter(
-            inmate => inmate.fullname == inputValue
-          );
-          store.Search.searchResults.push(searching);
-          console.log(store.Search.searchResults);
-          console.log(passBetween);
-        })
-        .then(window.location.replace("Search", "test", "/Search"));
+      axios.get("http://localhost:4040/inmates").then(response => {
+        store.Search.returnedInmates = response.data;
+        console.log(response.data);
+        store.Search.searchResults = [];
+        const searching = store.Search.returnedInmates.filter(
+          inmate => inmate.fullname == inputValue
+        );
+        store.Search.searchResults.push(searching);
+        console.log("This is Store SearchResults", store.Search.searchResults);
+        router.navigate("/Search");
+      });
     }
   });
 
@@ -131,14 +124,10 @@ async function afterRender(state) {
 
         axios
           .post(`http://localhost:4040/uploads`, requestData)
-          .then(response => {
-            store.Notifications.uploads.push(response.data);
-            router.navigate("/Notifications");
-            window.location.replace("/Notifications");
-          })
           .catch(error => {
             console.log("Not Working", error);
-          });
+          })
+          .then(router.navigate("/Notifications"));
       });
   }
   //Tabbed Containers for Dossier Page
@@ -279,8 +268,19 @@ async function afterRender(state) {
     });
   }
   if (state.view === "Search") {
-    let results = JSON.parse(localStorage.getItem("myItem"));
-    console.log(results);
+    //Redirecting to Dossier
+    document.querySelector("#search-tr").addEventListener("click", () => {
+      let searchInmateID = document.querySelectorAll("#search-tr")[0]
+        .children[5].innerHTML;
+      console.log(searchInmateID);
+      axios
+        .get(`http://localhost:4040/inmates/filterInmateId/${searchInmateID}`)
+        .then(response => {
+          store.Dossier.individualInmate = response.data;
+          console.log(store.Dossier.individualInmate);
+          router.navigate("/Dossier");
+        });
+    });
   }
 }
 
@@ -290,7 +290,7 @@ router.hooks({
     const view =
       params && params.data && params.data.view
         ? capitalize(params.data.view)
-        : "Dispatch";
+        : "Home";
     switch (view) {
       case "Dispatch":
         axios
@@ -336,18 +336,81 @@ router.hooks({
             done();
           });
         break;
-      case "Dossier":
-        axios
-          .get(`http://localhost:4040/inmates/63476ebe803e5d4215e1e575`)
-          .then(response => {
-            store.Dossier.inmate = response.data;
-            console.log(response.data);
-            done();
-          });
-        break;
+      // case "Dossier":
+      //   axios
+      //     .get(`http://localhost:4040/inmates/filterInmateId/GX8694G88H`)
+      //     .then(response => {
+      //       store.Dossier.inmate = response.data;
+      //       store.Dossier.inmateAll = [];
+      //       console.log("this is inmate all:", store.Dossier.inmateAll);
+      //       console.log("This is the Inmate:", response.data);
+      //       let inmatesID = response.data[0]._id.toUpperCase();
+      //       axios
+      //         .get(`http://localhost:4040/bookings/filterInmateID/${inmatesID}`)
+      //         .then(response => {
+      //           store.Dossier.booking = response.data;
+      //           console.log("These are bookings", store.Dossier.booking);
+      //           store.Dossier.bookingsIDs = [];
+      //           response.data.forEach(booking => {
+      //             let retrievedBookingId = booking._id.toUpperCase();
+      //             store.Dossier.bookingsIDs.push(retrievedBookingId);
+      //             for (let i = 0; i < store.Dossier.bookingsIDs.length; i++) {
+      //               console.log(store.Dossier.bookingsIDs[i]);
+      //               axios
+      //                 .get(
+      //                   `http://localhost:4040/charges/filterBookingID/${store.Dossier.bookingsIDs[i]}`
+      //                 )
+      //                 .then(response => {
+      //                   store.Dossier.charges = response.data;
+      //                   store.Dossier.chargesAll = [];
+      //                   console.log("Charges All", store.Dossier.chargesAll);
+      //                   store.Dossier.chargesAll.append(store.Dossier.charges);
+      //                 });
+      //               for (let i = 0; i < store.Dossier.bookingsIDs.length; i++) {
+      //                 axios
+      //                   .get(
+      //                     `http://localhost:4040/bonds/filterBookingID/${store.Dossier.bookingsIDs[i]}`
+      //                   )
+      //                   .then(response => {
+      //                     store.Dossier.bonds = response.data;
+      //                     console.log(
+      //                       "This is stored Bonds",
+      //                       store.Dossier.bonds
+      //                     );
+      //                     store.Dossier.bondAll = [];
+      //                     store.Dossier.bonds.forEach(
+      //                       bond => store.Dossier.bondAll.push(bond),
+      //                       console.log(
+      //                         "This is bond all",
+      //                         store.Dossier.bondAll
+      //                       )
+      //                     );
+      //                   });
+      //               }
+      //               const inmateObj = {
+      //                 inmate: store.Dossier.inmate,
+      //                 bookings: store.Dossier.booking,
+      //                 charges: store.Dossier.chargesAll,
+      //                 bonds: store.Dossier.bondAll
+      //               };
+      //               store.Dossier.inmateAll.push(inmateObj);
+      // //               console.log("This is the inmate all obj:", inmateObj);
+      // //             }
+      //           });
+      //         });
+      //       done();
+      //     });
+      //   break;
       default:
         done();
     }
+  },
+  already: params => {
+    const view =
+      params && params.data && params.data.view
+        ? capitalize(params.data.view)
+        : "Home";
+    render(store[view]);
   }
 });
 

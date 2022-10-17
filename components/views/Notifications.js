@@ -63,7 +63,10 @@ export default state => html`
       <div class="match-results-header">
         <p>Match Results</p>
       </div>
-      <div class="match-results-container"></div>
+      <div class="nots-results-cont">
+        <div class="case-results-cont></div>
+        <div class="match-results-container"></div>
+      </div>
     </div>`;
     })}
   </main>
