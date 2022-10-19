@@ -48,7 +48,13 @@ export default state => html`
       </div>
     </div>
     <!-- Upload Modal -->
-    <form id="upload-modal" class="upload-modal" method="POST">
+    <form
+      id="upload-modal"
+      class="upload-modal"
+      method="POST"
+      enctype="multipart/form-data"
+      action="/images"
+    >
       <!-- Upload Modal content -->
       <div class="upload-modal-content">
         <span class="fas fa-window-close fa-2x" id="modal-close"></span>
@@ -70,7 +76,7 @@ export default state => html`
         </label>
         <label id="contact-form-input"
           >Upload file:
-          <input type="file" name="upload" id="media-modal-upload-file" />
+          <input type="file" name="recfile" id="media-modal-upload-file" />
         </label>
         <button type="submit" name="submit" id="media-modal-submit">
           Submit

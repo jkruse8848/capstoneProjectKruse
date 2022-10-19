@@ -106,7 +106,7 @@ async function afterRender(state) {
     let today = `${month}/${day}/${year} ${hour}:${min}:${sec}`;
     document.getElementById("media-modal-date").value = today;
 
-    //Sending data from modal
+    // Sending data from modal
     document
       .getElementById("upload-modal")
       .addEventListener("submit", event => {
@@ -129,7 +129,33 @@ async function afterRender(state) {
           })
           .then(router.navigate("/Notifications"));
       });
+
+    document
+      .getElementById("upload-modal")
+      .addEventListener("submit", event => {
+        event.preventDefault();
+        const caseNumber = document.getElementById("media-modal-casenumber");
+        const justification = document.getElementById(
+          "media-modal-justification"
+        );
+        const subDate = document.getElementById("media-modal-date");
+        const file = document.getElementById("media-modal-upload-file");
+        const formData = new FormData();
+        formData.append("name", caseNumber.value);
+        formData.append("justification", justification.value);
+        formData.append("submissionDate", subDate.value);
+        formData.append("file", file.files[0]);
+        console.log("FormData", formData);
+        fetch("http://localhost:4040/upload_files", {
+          method: "POST",
+          body: formData,
+          headers: {}
+        })
+          .then(res => console.log(res))
+          .catch(err => ("Error occurred", err));
+      });
   }
+
   //Tabbed Containers for Dossier Page
   if (state.view === "Dossier") {
     let tabs = document.querySelectorAll(".dos-tab-header");

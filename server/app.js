@@ -1,18 +1,16 @@
-const express = require("express");
-const dotenv = require("dotenv");
-const mongoose = require("mongoose");
-const multer = require("multer");
-const { GridFsStorage } = require("multer-gridfs-storage");
-const inmates = require("./routers/inmates");
-const uploads = require("./routers/uploads");
-const bookings = require("./routers/bookings");
-const charges = require("./routers/charges");
-const bonds = require("./routers/bonds");
-const bodyParser = require("body-parser");
+const express = require("express")
+const dotenv = require("dotenv")
+const mongoose = require("mongoose")
+const inmates = require("./routers/inmates")
+const uploads = require("./routers/uploads")
+const bookings = require("./routers/bookings")
+const charges = require("./routers/charges")
+const bonds = require("./routers/bonds")
+const bodyParser = require("body-parser")
 
 dotenv.config();
 
-// Initialize the Express application
+//Initialize the Express application for server 1
 const app = express();
 
 mongoose.connect(process.env.MONGODB);
@@ -70,18 +68,21 @@ app.use("/charges", charges);
 app.use("/bonds", bonds);
 app.use(express.static("public"));
 
-// app.post("/inmates/find", async (request, response) => {
-//   let payload = request.body.payload.trim();
-//   let search = await inmates
-//     .find({
-//       fullname: { $regex: new RegExp("^" + payload + ".*", "i") }
-//     })
-//     .exec();
-//   search = search.slice(0, 10);
-//   response.send({ payload: search });
-// });
+//file upload
+const multer = require("multer");
+const upload = multer({ dest: "uploads/" });
 
-const PORT = process.env.PORT || 4040; // we use || to provide a default value
+app.post("/upload_files", upload.single("file"), uploadFiles);
+
+function uploadFiles(req, res) {
+  console.log(req.body);
+  console.log(req.file);
+  res.json({message: "Successfully Uploaded Files"});
+  res.req.file;
+}
+
+const PORT1 = process.env.API_PORT || 4040;
+// we use || to provide a default value
 // Tell the Express app to start listening
 // Let the humans know I am running and listening on 4040
-app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+app.listen(PORT1, () => console.log(`Listening on port ${PORT1}`));
