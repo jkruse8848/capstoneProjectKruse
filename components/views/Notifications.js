@@ -1,5 +1,4 @@
 import html from "html-literal";
-import toddWike from "/assets/img/Todd_Wike_0001.jpg";
 import tomCruise2 from "/assets/img/tomCruise2.jpeg";
 
 export default state => html`
@@ -41,7 +40,7 @@ export default state => html`
       <div class="upload-photo-container">
         <div class="photo-box">
           <div class="upload-photos">
-            <img id="uploaded-photo" src="https://raw.githubusercontent.com/jkruse8848/imageStore/main/lfw/Tom_Brady/Tom_Brady_0001.jpg" />
+            <img id="uploaded-photo" src="http://localhost:4040/upload_files/${upload.imagePath}"/>
           </div>
           <div class="photo-text">
             <p>Uploaded Photo</p>
@@ -52,8 +51,8 @@ export default state => html`
           id="transform-circle"
         ></div>
         <div class="photo-box">
-          <div class="upload-photos">
-            <img id="uploaded-photo" src="https://raw.githubusercontent.com/jkruse8848/imageStore/main/lfw/Tom_Brady/Tom_Brady_0001.jpg" ${start()}/>
+          <div class="returned-photos">
+            <img id="returned-photos" src="${tomCruise2}"}/>
           </div>
           <div class="photo-text">
             <p>Processed Photo</p>
@@ -100,69 +99,3 @@ export default state => html`
     })}
   </main>
 `;
-import * as faceapi from "face-api.js";
-
-const imageUpload = document.getElementById("upload-photos");
-
-Promise.all([
-  faceapi.nets.faceRecognitionNet.loadFromUri("/models"),
-  faceapi.nets.faceLandmark68Net.loadFromUri("/models"),
-  faceapi.nets.ssdMobilenetv1.loadFromUri("/models")
-]).then(start);
-
-async function start() {
-  const container = document.createElement("div");
-  container.style.position = "relative";
-  document.body.append(container);
-  const labeledFaceDescriptors = await loadLabeledImages();
-  const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.6);
-  let image;
-  let canvas;
-  document.body.append("Loaded");
-  imageUpload.addEventListener("change", async () => {
-    if (image) image.remove();
-    if (canvas) canvas.remove();
-    image = await faceapi.bufferToImage(imageUpload.files[0]);
-    container.append(image);
-    canvas = faceapi.createCanvasFromMedia(image);
-    container.append(canvas);
-    const displaySize = { width: image.width, height: image.height };
-    faceapi.matchDimensions(canvas, displaySize);
-    const detections = await faceapi
-      .detectAllFaces(image)
-      .withFaceLandmarks()
-      .withFaceDescriptors();
-    const resizedDetections = faceapi.resizeResults(detections, displaySize);
-    const results = resizedDetections.map(d =>
-      faceMatcher.findBestMatch(d.descriptor)
-    );
-    console.log(results);
-    results.forEach((result, i) => {
-      const box = resizedDetections[i].detection.box;
-      const drawBox = new faceapi.draw.DrawBox(box, {
-        label: result.toString()
-      });
-      drawBox.draw(canvas);
-    });
-  });
-}
-
-function loadLabeledImages() {
-  const labels = ["Stefano_Gabbana", "Donald_Trump", "Tom_Cruise"];
-  return Promise.all(
-    labels.map(async label => {
-      const descriptions = [];
-      for (let i = 1; i <= 1; i++) {
-        const img = await faceapi.fetchImage(
-          `https://raw.githubusercontent.com/jkruse8848/imageStore/main/lfw/${label}/${label}_000${i}.jpg`
-        );
-        const detections = await faceapi
-          .detectSingleFace(img)
-          .withFaceLandmarks()
-          .withFaceDescriptor();
-        descriptions.push(detections.descriptor);
-      }
-      return new faceapi.LabeledFaceDescriptors(label, descriptions);
-    })
-  );
-}

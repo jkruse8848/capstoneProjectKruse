@@ -5,7 +5,7 @@ import { capitalize } from "lodash";
 import axios from "axios";
 import item from "/assets/img/case.png";
 import * as $ from "jquery";
-import * as faceapi from "face-api.js";
+import * as canvas from "canvas";
 
 const router = new Navigo("/");
 
@@ -111,29 +111,6 @@ async function afterRender(state) {
       .getElementById("upload-modal")
       .addEventListener("submit", event => {
         event.preventDefault();
-
-        const inputs = event.target.elements;
-        console.log("Input Element List", inputs);
-
-        const requestData = {
-          casenumber: inputs.casenumber.value,
-          justification: inputs.justification.value,
-          date: inputs.dateofupload.value
-        };
-        console.log("request body", requestData);
-
-        axios
-          .post(`http://localhost:4040/uploads`, requestData)
-          .catch(error => {
-            console.log("Not Working", error);
-          })
-          .then(router.navigate("/Notifications"));
-      });
-
-    document
-      .getElementById("upload-modal")
-      .addEventListener("submit", event => {
-        event.preventDefault();
         const caseNumber = document.getElementById("media-modal-casenumber");
         const justification = document.getElementById(
           "media-modal-justification"
@@ -141,9 +118,9 @@ async function afterRender(state) {
         const subDate = document.getElementById("media-modal-date");
         const file = document.getElementById("media-modal-upload-file");
         const formData = new FormData();
-        formData.append("name", caseNumber.value);
+        formData.append("casenumber", caseNumber.value);
         formData.append("justification", justification.value);
-        formData.append("submissionDate", subDate.value);
+        formData.append("date", subDate.value);
         formData.append("file", file.files[0]);
         console.log("FormData", formData);
         fetch("http://localhost:4040/upload_files", {
@@ -151,7 +128,32 @@ async function afterRender(state) {
           body: formData,
           headers: {}
         })
-          .then(res => console.log(res))
+          .then(res => res.json())
+          .then(data => {
+            console.log(data.imagePath);
+            store.Notifications.uploadData = data;
+            console.log("all data", store.Notifications.uploadData);
+
+            const imagePathOne = store.Notifications.uploadData.imagePath;
+            const caseNumberOne = store.Notifications.uploadData.casenumber;
+            const justificationOne =
+              store.Notifications.uploadData.justification;
+            const dateOne = store.Notifications.uploadData.date;
+            const requestData = {
+              imagePath: imagePathOne,
+              casenumber: caseNumberOne,
+              justification: justificationOne,
+              date: dateOne
+            };
+            console.log("request body", requestData);
+
+            axios
+              .post(`http://localhost:4040/uploads`, requestData)
+              .catch(error => {
+                console.log("Not Working", error);
+              })
+              .then(router.navigate("/Notifications"));
+          })
           .catch(err => ("Error occurred", err));
       });
   }
