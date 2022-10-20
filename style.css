@@ -1370,6 +1370,20 @@ tr:nth-child(odd) {
   border: #04455D 2px solid;
   box-shadow: 2px 2px 5px #8E8E8E;
   border-radius: 5px;
+  overflow: hidden;
+}
+
+.returned-photos {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  height: 250px;
+  width: 250px;
+  border: #04455D 2px solid;
+  box-shadow: 2px 2px 5px #8E8E8E;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 #transform-circle {

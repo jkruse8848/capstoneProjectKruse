@@ -68,18 +68,34 @@ app.use("/charges", charges);
 app.use("/bonds", bonds);
 app.use(express.static("public"));
 
-//file upload
+//All the s3 things
 const multer = require("multer");
 const upload = multer({ dest: "uploads/" });
+const { uploadFiles, getFileStream } = require('./s3')
+const fs = require('fs')
+const util = require('util')
+const unlinkFile = util.promisify(fs.unlink)
 
-app.post("/upload_files", upload.single("file"), uploadFiles);
+//get from s3 based on key
+app.get('/upload_files/:key', (req, res) => {
+  const key = req.params.key
+  const readStream = getFileStream(key)
+  readStream.pipe(res)
+})
 
-function uploadFiles(req, res) {
-  console.log(req.body);
-  console.log(req.file);
-  res.json({message: "Successfully Uploaded Files"});
-  res.req.file;
-}
+//send to s3
+app.post("/upload_files", upload.single("file"), async (req, res) => {
+  const file = req.file
+  console.log(file)
+  console.log(req.body)
+  const result = await uploadFiles(file)
+  console.log(result)
+  res.send({imagePath: `${result.Key}`,
+            casenumber: `${req.body.casenumber}`,
+            justification: `${req.body.justification}`,
+            date: `${req.body.date}`})
+  await unlinkFile(file.path)
+});
 
 const PORT1 = process.env.API_PORT || 4040;
 // we use || to provide a default value
