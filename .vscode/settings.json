@@ -23,5 +23,8 @@
   "workbench.view.alwaysShowHeaderActions": true,
   "editor.rulers": [
       100, 120
-  ]
+  ],
+  "search.exclude": {
+    "**/node_modules": false
+  }
 }

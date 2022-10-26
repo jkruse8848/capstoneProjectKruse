@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <title>Cayenne LE</title>
+    <link rel = "icon" href ="./assets/img/top-icon.png" type = "image/x-icon">
+    <script defer src="./index.js"></script>
+    <script defer src="./face-api.min.js"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css' rel='stylesheet' />
+</head>
+<header>
+  <div class="border-maker">
+    <div class="fas fa-search fa-lg" id="header-search"></div>
+    <input
+      type="search"
+      id="site-search"
+      name="q"
+      placeholder="Run Your Search Here..."
+    />
+    <div class="fas fa-filter fa-lg" id="header-search2"></div>
+    <section id="search-results-type-ahead"></section>
+  </div>
+</header>
+<nav>
+  <i class="fas fa-bars fa-lg">
+      <div>
+          <div class="fas fa-home fa-lg" id="mobile-icon">
+              <p id="nav-bar-text">HOME</p>
+          </div>
+          <p id="mobile-menu"><div class="fas fa-search" id="mobile-icon"></div>SEARCH</p>
+          <p id="mobile-menu"><div class="fas fa-table" id="mobile-icon"></div>DOSSIER</p>
+          <p id="mobile-menu"><div class="fas fa-bell" id="mobile-icon"></div>NOTIFICATIONS</p>
+          <p id="mobile-menu"><div class="fas fa-info-circle" id="mobile-icon"></div>ABOUT</p>
+          <p id="mobile-menu"><div class="fas fa-comment-alt" id="mobile-icon"></div>CONTACT</p>
+          <p id="mobile-menu"><div class="fas fa-user-shield" id="mobile-icon"></div>USER PROFILE</p>
+      </div>
+  </i>
+  <ul class="hidden--mobile">
+  <div id="logo">
+      <img src="http://localhost:4040/static/img/CayenneC2.png" id="logo-image">
+        <p id="logo-text">CAYENNE</p>
+      <div class="fas fa-angle-double-left fa-lg"></div>
+  </div>
+  <hr>
+    <a href="" class="fas fa-home fa-lg" id="nav-icon1">
+      <p id="nav-bar-text">Home</p>
+    </a>
+    <a href="" class="fas fa-search fa-lg" id="nav-icon2">
+      <p id="nav-bar-text">Search</p>
+    </a>
+    <a href="" class="fas fa-table fa-lg" id="nav-icon3">
+      <p id="nav-bar-text">Dossier</p>
+    </a>
+    <a href="" class="fas fa-bell fa-lg" id="nav-icon4">
+      <p id="nav-bar-text">Notifications</p>
+    </a>
+    <a href="" class="fas fa-map-marked-alt fa-lg" id="nav-icon5">
+      <p id="nav-bar-text">Dispatch</p>
+    </a>
+    <a href="" class="fas fa-info-circle fa-lg" id="nav-icon6">
+      <p id="nav-bar-text">About</p>
+    </a>
+    <a href="" class="fas fa-comment-alt fa-lg" id="nav-icon7">
+      <p id="nav-bar-text">Contact</p>
+    </a>
+    <a href="" class="fas fa-file-alt fa-lg" id="nav-icon8">
+      <p id="nav-bar-text">User Guide</p>
+    </a>
+    <a href="" class="fas fa-user-shield fa-lg" id="nav-icon9">
+      <p id="nav-bar-text">User Profile</p>
+    </a>
+  </ul>
+</nav>
+<body>
+    <div id="root">
+      <main>
+        <div class="notifications-no-scroll">
+          <div class="uploads-panel">
+            <div class="uploads-filter-holder">
+              <p>Filter Uploads:</p>
+              <input
+                class="uploads-filter"
+                type="text"
+                id="uploads-filter-notifications"
+                placeholder="Case Number..."
+              />
+            </div>
+            <div class="upload-notifications-holder">
+              <div class="upload-container" id="upload-container">
+                <div class="fas fa-inbox fa-lg" id="uploads-icon"></div>
+                <div class="case-jus-holder" id="case-jus-holder-id">
+                  <div class="case-number-upload" id="case-number-for-uploads">
+                    <p>12345689</p>
+                  </div>
+                  <div class="justification-upload">
+                    <p>TESTING1</p>
+                  </div>
+                </div>
+                <div class="date-holder">
+                  <p>10/21/2023</p>
+                </div>
+              </div>
+              <div class="upload-container" id="upload-container">
+                <div class="fas fa-inbox fa-lg" id="uploads-icon"></div>
+                <div class="case-jus-holder" id="case-jus-holder-id">
+                  <div class="case-number-upload" id="case-number-for-uploads">
+                    <p>12345610</p>
+                  </div>
+                  <div class="justification-upload">
+                    <p>TESTING2</p>
+                  </div>
+                </div>
+                <div class="date-holder">
+                  <p>10/22/2023</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="notification-content" id="notification-content">
+          <p>12345610</p>
+          <div class="upload-photo-container">
+            <div class="photo-box">
+              <div class="upload-photos">
+                <img id="uploaded-photo" crossOrigin='anonymous' src="http://localhost:4040/upload_files/10c4d0a54eb69136ccca7a56b24cf70f"/>
+              </div>
+              <div class="photo-text">
+                <p>Uploaded Photo</p>
+              </div>
+            </div>
+            <div
+              class="fas fa-arrow-alt-circle-right fa-4x"
+              id="transform-circle"
+            ></div>
+            <div class="photo-box">
+              <div class="returned-photos">
+                <!-- <div class="loader"><p>Face Recognition Loading</p></div> -->
+                <img id="returned-photos" src=""/>
+              </div>
+              <div class="photo-text">
+                <p>Processed Photo</p>
+              </div>
+            </div>
+          </div>
+          <div class="match-results-header">
+            <p>Match Results</p>
+          </div>
+          <div class="nots-results-cont">
+            <div class="case-match">
+              <p>Linked Case</p>
+              <div class="case-results-cont">
+                <div class="case-match-props">
+                  <p>Incident Number</p>
+                  <p>Report Description</p>
+                  <p>Incident Status</p>
+                  <p>Investigation Status</p>
+                  <p>Zip Code</p>
+                  <p>Location Description</p>
+                  <p>NIBRS Number</p>
+                  <p>Offense Description</p>
+                  <p>Weapon Description</p>
+                </div>
+                <div class="case-match-props">
+                  <p>Value</p>
+                  <p>Value</p>
+                  <p>Value</p>
+                  <p>Value</p>
+                  <p>Value</p>
+                  <p>Value</p>
+                  <p>Value</p>
+                  <p>Value</p>
+                  <p>Value</p>
+                </div>
+              </div>
+            </div>
+            <div class="case-match">
+              <p>Recognition Matches</p>
+              <div class="match-results-container">TEST2</div>
+            </div>
+          </div>
+        </div>
+        <div class="notification-content">
+          <p>12345689</p>
+          <div class="upload-photo-container">
+            <div class="photo-box">
+              <div class="upload-photos">
+                <img id="uploaded-photo" src="http://localhost:4040/static/img/tomCruise2.jpeg" crossorigin='anonymous'/>
+              </div>
+              <div class="photo-text">
+                <p>Uploaded Photo</p>
+              </div>
+            </div>
+            <div
+              class="fas fa-arrow-alt-circle-right fa-4x"
+              id="transform-circle"
+            ></div>
+            <div class="photo-box">
+              <div class="returned-photos">
+                <img id="returned-photos" src=""/>
+              </div>
+              <div class="photo-text">
+                <p>Processed Photo</p>
+              </div>
+            </div>
+          </div>
+          <div class="match-results-header">
+            <p>Match Results</p>
+          </div>
+          <div class="nots-results-cont">
+            <div class="case-match">
+              <p>Linked Case</p>
+              <div class="case-results-cont">
+                <div class="case-match-props">
+                  <p>Incident Number</p>
+                  <p>Report Description</p>
+                  <p>Incident Status</p>
+                  <p>Investigation Status</p>
+                  <p>Zip Code</p>
+                  <p>Location Description</p>
+                  <p>NIBRS Number</p>
+                  <p>Offense Description</p>
+                  <p>Weapon Description</p>
+                </div>
+                <div class="case-match-props">
+                  <p>Value</p>
+                  <p>Value</p>
+                  <p>Value</p>
+                  <p>Value</p>
+                  <p>Value</p>
+                  <p>Value</p>
+                  <p>Value</p>
+                  <p>Value</p>
+                  <p>Value</p>
+                </div>
+              </div>
+            </div>
+            <div class="case-match">
+              <p>Recognition Matches</p>
+              <div class="match-results-container">TEST2</div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+</body>
+<footer>
+  <p>Powered by:</p>
+  <img src="http://localhost:4040/static/img/TF-logo.png" />
+</footer>
+</html>

@@ -21,7 +21,8 @@ function uploadFiles(file) {
   const uploadParams = {
     Bucket: bucketName,
     Body: fileStream,
-    Key: file.filename
+    Key: file.filename,
+    ContentType: "image/jpeg"
   };
   return s3.upload(uploadParams).promise();
 }

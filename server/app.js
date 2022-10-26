@@ -66,9 +66,10 @@ app.use("/uploads", uploads);
 app.use("/bookings", bookings);
 app.use("/charges", charges);
 app.use("/bonds", bonds);
-app.use(express.static("public"));
+app.use("/static", express.static('public'));
 
 //All the s3 things
+//s3 Requirements
 const multer = require("multer");
 const upload = multer({ dest: "uploads/" });
 const { uploadFiles, getFileStream } = require('./s3')
