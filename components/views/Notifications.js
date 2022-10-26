@@ -16,7 +16,7 @@ export default state => html`
         </div>
         <div class="upload-notifications-holder">
           ${state.uploads.map(upload => {
-            return `<div class="upload-container">
+            return `<div class="upload-container" id="upload-container">
             <div class="fas fa-inbox fa-lg" id="uploads-icon"></div>
             <div class="case-jus-holder" id="case-jus-holder-id">
               <div class="case-number-upload" id="case-number-for-uploads">
@@ -40,7 +40,7 @@ export default state => html`
       <div class="upload-photo-container">
         <div class="photo-box">
           <div class="upload-photos">
-            <img id="uploaded-photo" src="http://localhost:4040/upload_files/${upload.imagePath}"/>
+            <img id="uploaded-photo" src="http://localhost:4040/upload_files/${upload.imagePath}" crossorigin='anonymous'/>
           </div>
           <div class="photo-text">
             <p>Uploaded Photo</p>
@@ -51,8 +51,10 @@ export default state => html`
           id="transform-circle"
         ></div>
         <div class="photo-box">
-          <div class="returned-photos">
-            <img id="returned-photos" src="${tomCruise2}"}/>
+          <div class="returned-photos" id="returned-photo">
+            <div class="loader" id="loader"></div>
+            <p id="waiting-text">Results may take up to 30 seconds</p>
+            <img id="returned-photos"/>
           </div>
           <div class="photo-text">
             <p>Processed Photo</p>
@@ -92,9 +94,14 @@ export default state => html`
         </div>
         <div class="case-match">
           <p>Recognition Matches</p>
-          <div class="match-results-container">TEST2</div>
+          <div class="match-results-container">
+            <div class="loader" id="loader"></div>
+            <p id="waiting-text">Results may take up to 30 seconds</p>
+          </div>
         </div>
       </div>
+      <script defer src="./facerec/face-api.min.js"></script>
+      <script defer src="./facerec/index.js"></script>
     </div>`;
     })}
   </main>

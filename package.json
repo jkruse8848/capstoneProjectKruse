@@ -29,24 +29,25 @@
   },
   "dependencies": {
     "@tensorflow/tfjs-node": "^4.0.0",
+    "@vladmandic/face-api": "^1.7.6",
     "aws-sdk": "^2.1235.0",
     "axios": "^0.27.2",
-    "canvas": "^2.10.1",
     "cors": "^2.8.5",
     "datatables.net": "^1.12.1",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "face-api.js": "^0.22.2",
     "html-literal": "^1.1.0",
     "lodash": "^4.17.21",
     "mapbox-gl": "^2.10.0",
     "md-block": "^0.0.1",
     "mongoose": "^6.6.5",
     "multer": "^1.4.4",
+    "n": "^9.0.0",
     "navigo": "^8.11.1",
     "node-pre-gyp": "^0.17.0",
     "nodemon": "^2.0.20",
     "parcel": "^2.7.0",
+    "stable": "^0.1.8",
     "yargs-parser": ">=13.1.2"
   }
 }
