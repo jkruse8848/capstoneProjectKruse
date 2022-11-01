@@ -69,26 +69,26 @@ export default state => html`
           <p>Linked Case</p>
           <div class="case-results-cont">
             <div class="case-match-props">
-              <p>Incident Number</p>
-              <p>Report Description</p>
-              <p>Incident Status</p>
-              <p>Investigation Status</p>
-              <p>Zip Code</p>
-              <p>Location Description</p>
-              <p>NIBRS Number</p>
-              <p>Offense Description</p>
-              <p>Weapon Description</p>
+              <p>Incident Number:</p>
+              <p>Report Description:</p>
+              <p>Incident Status:</p>
+              <p>Investigation Status:</p>
+              <p>Zip Code:</p>
+              <p>Location Description:</p>
+              <p>NIBRS Number:</p>
+              <p>Offense Description:</p>
+              <p>Weapon Description:</p>
             </div>
             <div class="case-match-props">
-              <p>Value</p>
-              <p>Value</p>
-              <p>Value</p>
-              <p>Value</p>
-              <p>Value</p>
-              <p>Value</p>
-              <p>Value</p>
-              <p>Value</p>
-              <p>Value</p>
+              <p>No Linked Case</p>
+              <p>No Linked Case</p>
+              <p>No Linked Case</p>
+              <p>No Linked Case</p>
+              <p>No Linked Case</p>
+              <p>No Linked Case</p>
+              <p>No Linked Case</p>
+              <p>No Linked Case</p>
+              <p>No Linked Case</p>
             </div>
           </div>
         </div>
@@ -100,8 +100,6 @@ export default state => html`
           </div>
         </div>
       </div>
-      <script defer src="./facerec/face-api.min.js"></script>
-      <script defer src="./facerec/index.js"></script>
     </div>`;
     })}
   </main>

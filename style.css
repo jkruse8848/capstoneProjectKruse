@@ -714,13 +714,17 @@ main > .welcome-box > h3 {
 }
 
 .results-display {
+  display: flex;
+  flex-direction: column;
   height: 100%;
   width: 100%;
   background-color: #F3F3F3;
   box-shadow: inset 2px 2px 5px #8E8E8E;
-  margin-top: -20px;
+  margin-top: -10px;
   border: #04455D solid 2px;
   border-radius: 5px;
+  overflow: scroll;
+  box-shadow: 2px 2px 5px #8E8E8E;
 }
 
 /* Footer CSS */
@@ -1281,7 +1285,7 @@ tr:nth-child(odd) {
   margin-bottom: -20px;
 }
 
-.justification-upload {
+.justification-upload > p{
   margin-left: 20px;
   font-size: small;
   height: 43px;
@@ -1513,10 +1517,19 @@ canvas {
   margin-bottom: 25px;
   width: 95%;
   box-shadow: 2px 2px 5px #8E8E8E;
-  overflow: scroll;
+  overflow-x: scroll;
+  overflow-y: scroll;
   width: 350px;
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.case-match-props > p {
+  color: #04455D;
+  margin-left: 10px;
+  width: 200px;
+  height: 20px;
+  text-overflow: ellipsis;
 }
 
 .match-results-container {
