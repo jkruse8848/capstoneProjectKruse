@@ -23,7 +23,7 @@ export default state => html`
       </h3>
     </div>
     <div class="search-container">
-      <p>Upload Photos or Video to Perform Facial Recognition:</p>
+      <p>Upload Photo to Perform Facial Recognition:</p>
     </div>
     <div class="home-separator"></div>
     <div class="media-holder">
@@ -38,7 +38,25 @@ export default state => html`
         <div class="fas fa-bell fa-2x" id="results-banner">
           <p>Notifications</p>
         </div>
-        <div class="results-display"></div>
+        <div class="results-display">
+          ${state.uploads.map(upload => {
+            return `
+          <div class="upload-container" id="upload-container">
+            <div class="fas fa-inbox fa-lg" id="uploads-icon"></div>
+            <div class="case-jus-holder" id="case-jus-holder-id">
+              <div class="case-number-upload" id="case-number-for-uploads">
+                <p>${upload.casenumber}</p>
+              </div>
+              <div class="justification-upload">
+                <p>${upload.justification}</p>
+              </div>
+            </div>
+            <div class="date-holder">
+              <p>${upload.date}</p>
+            </div>
+          </div>`;
+          })}
+        </div>
       </div>
       <div class="results-sub-container">
         <div class="fas fa-search fa-2x" id="results-banner">

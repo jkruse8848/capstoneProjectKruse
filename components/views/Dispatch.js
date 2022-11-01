@@ -34,5 +34,41 @@ export default state => html`
         </tbody>
       </table>
     </div>
+    <!-- Upload Modal -->
+    <form
+      id="upload-modal"
+      class="upload-modal"
+      method="POST"
+      enctype="multipart/form-data"
+      action="/images"
+    >
+      <!-- Upload Modal content -->
+      <div class="upload-modal-content">
+        <span class="fas fa-window-close fa-2x" id="modal-close"></span>
+        <label id="contact-form-input"
+          >Case Number:
+          <input type="text" name="casenumber" id="media-modal-casenumber" />
+        </label>
+        <label id="contact-form-input"
+          >Justification:
+          <input
+            type="text"
+            name="justification"
+            id="media-modal-justification"
+          />
+        </label>
+        <label id="contact-form-input"
+          >Submission Date:
+          <input type="text" name="dateofupload" id="media-modal-date" />
+        </label>
+        <label id="contact-form-input"
+          >Upload file:
+          <input type="file" name="recfile" id="media-modal-upload-file" />
+        </label>
+        <button type="submit" name="submit" id="media-modal-submit">
+          Submit
+        </button>
+      </div>
+    </form>
   </main>
 `;
