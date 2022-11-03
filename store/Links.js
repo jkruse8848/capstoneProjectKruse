@@ -6,6 +6,12 @@ export default [
     text: "Home"
   },
   {
+    title: "Dispatch",
+    class: "fas fa-map-marked-alt fa-lg",
+    id: "nav-icon5",
+    text: "Cases"
+  },
+  {
     title: "Search",
     class: "fas fa-search fa-lg",
     id: "nav-icon2",
@@ -22,12 +28,6 @@ export default [
     class: "fas fa-bell fa-lg",
     id: "nav-icon4",
     text: "Notifications"
-  },
-  {
-    title: "Dispatch",
-    class: "fas fa-map-marked-alt fa-lg",
-    id: "nav-icon5",
-    text: "Current Dispatch"
   },
   {
     title: "About",
