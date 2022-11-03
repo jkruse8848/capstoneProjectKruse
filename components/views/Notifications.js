@@ -94,7 +94,7 @@ export default state => html`
         </div>
         <div class="case-match">
           <p>Recognition Matches</p>
-          <div class="match-results-container">
+          <div class="match-results-container" id="match-results-container">
             <div class="loader" id="loader"></div>
             <p id="waiting-text">Results may take up to 30 seconds</p>
           </div>

@@ -3,9 +3,7 @@ import toddwike from "../../assets/img/Todd_Wike_0001.jpg";
 
 export default state => html`
   <div class="search-all-container">
-    <div class="search-header">
-      <h3>Your Search for _blank_ Returned _blank_ Results</h3>
-    </div>
+    <div class="search-header"></div>
     <table id="search-table">
       <tr id="tr-header-search">
         <th id="table-search">Photo</th>

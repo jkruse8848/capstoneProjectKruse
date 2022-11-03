@@ -20,14 +20,14 @@ ${getInmate(state.individualInmate)}
               <p>Holding Agency:</p>
             </div>
             <div class="booking-data-holder">
-              <p>Value</p>
-              <p>Value</p>
-              <p>Value</p>
-              <p>Value</p>
-              <p>Value</p>
-              <p>Value</p>
-              <p>Value</p>
-              <p>Value</p>
+              <p>100023421</p>
+              <p>12/21/2021</p>
+              <p>3/12/2022</p>
+              <p>96 Days</p>
+              <p>Fulsom Prison</p>
+              <p>$15000</p>
+              <p>$1500</p>
+              <p>Keystone Cops</p>
             </div>
             <table class="bonds-table">
               <tr id="tr-header">
@@ -35,9 +35,9 @@ ${getInmate(state.individualInmate)}
                 <th>Bond Number</th>
                 <th>Bond Type</th>
               </tr>
-                <td>Bond Amount Value</td>
-                <td>Bond Number Value</td>
-                <td>Bond Type Value</td>
+                <td>$15000</td>
+                <td>AA103231</td>
+                <td>Held In Lieu of Bond</td>
               <tr></tr>
             </table>
           </div>
@@ -53,15 +53,15 @@ ${getInmate(state.individualInmate)}
                 <th>Court Date</th>
                 <th>Arresting Agency</th>
               </tr>
-                <td>Charge Description Value</td>
-                <td>Offense Date Value</td>
-                <td>Docket Number Value</td>
-                <td>Sentence Date Value</td>
-                <td>Disposition Value</td>
-                <td>Length Value</td>
-                <td>Crime Class Value</td>
-                <td>Court Date Value</td>
-                <td>Arresting Agency Value</td>
+                <td>Battery - 2nd Or Subsequent Offense</td>
+                <td>12/21/2020</td>
+                <td>2020 SD 88886</td>
+                <td>2/2/21</td>
+                <td>Sentenced CJ</td>
+                <td>96 days</td>
+                <td>Felony</td>
+                <td>1/11/21</td>
+                <td>City of Surprise Police Department</td>
               <tr></tr>
             </table>
         </div>
